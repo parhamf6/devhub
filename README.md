@@ -1,10 +1,3 @@
-You're welcome, my friend! Here's a **comprehensive and production-quality `README.md`** file for your **DevHub** project. This README assumes your stack includes **Next.js**, **Tailwind CSS**, **TypeScript**, and that DevHub is a modern developer platform for tools, learning, and customization.
-
-Feel free to tweak the details to reflect your actual features.
-
----
-
-````markdown
 # 🧠 DevHub
 
 A modern, theme-aware developer platform that brings together essential tools, learning resources, and rich UI components—all in one hub.
@@ -48,25 +41,6 @@ A modern, theme-aware developer platform that brings together essential tools, l
 - **Markdown/MDX**: [MDX](https://mdxjs.com/)
 - **Icons**: [Lucide](https://lucide.dev/)
 - **Theming**: Custom OKLCH color system
-
----
-
-## 📁 Project Structure
-
-```bash
-.
-├── app/                 # App Router structure (Next.js 15)
-│   ├── dashboard/       # Main dashboard layout with routes for tools, learn, etc.
-│   └── learn/           # MDX-rendered learning content
-├── components/          # Reusable UI components (ToolCard, ThemeToggle, etc.)
-├── content/
-│   └── learn/           # MDX files organized by category/tag
-├── lib/
-│   ├── tools/           # Tool definitions with metadata and logic
-│   └── utils/           # Shared utility functions
-├── styles/              # Global styles, theme tokens
-└── tailwind.config.ts   # Tailwind with custom OKLCH theme
-````
 
 ---
 
