@@ -55,7 +55,7 @@ const data = {
             url: "/dashboard/tools/categories?category=Generator",
             },
             {
-            title: "Secuirty",
+            title: "Security",
             url: "/dashboard/tools/categories?category=Secuirty",
             },
             {

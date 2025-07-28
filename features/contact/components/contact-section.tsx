@@ -13,7 +13,8 @@ import {
   Send,
   MapPin,
   Clock,
-  Heart
+  Heart,
+  ToolCase
 } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Highlight } from '@/components/text-animation/hero-highlighter';
@@ -41,10 +42,10 @@ const ContactPage = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub', hoverColor: 'hover:text-foreground' },
+    { icon: Github, href: 'https://github.com/parhamf6/devhub', label: 'GitHub', hoverColor: 'hover:text-foreground' },
     { icon: Twitter, href: '#', label: 'Twitter', hoverColor: 'hover:text-primary' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', hoverColor: 'hover:text-primary' },
-    { icon: MessageSquare, href: '#', label: 'Discord', hoverColor: 'hover:text-accent-foreground' }
+    // { icon: Linkedin, href: '#', label: 'LinkedIn', hoverColor: 'hover:text-primary' },
+    // { icon: MessageSquare, href: '#', label: 'Discord', hoverColor: 'hover:text-accent-foreground' }
   ];
 
   const contactTypes = [
@@ -56,9 +57,9 @@ const ContactPage = () => {
   ];
 
   const stats = [
-    { icon: Users, value: '2.5k+', label: 'Contributors' },
-    { icon: Star, value: '15k+', label: 'GitHub Stars' },
-    { icon: Code, value: '50+', label: 'Projects' }
+    { icon: Users, value: '1K', label: 'Contributors' },
+    { icon: Star, value: '100', label: 'GitHub Stars' },
+    { icon: ToolCase, value: '25+', label: 'Tools' }
   ];
 
   return (

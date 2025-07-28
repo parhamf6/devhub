@@ -38,7 +38,6 @@ const moreLinks = [
 export default function Navbar() {
     const [open, setOpen] = useState(false)
     const [moreOpen, setMoreOpen] = useState(false)
-
     return (
         <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border font-['Poppins',sans-serif]">
         <nav className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">

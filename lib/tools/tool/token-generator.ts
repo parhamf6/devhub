@@ -36,7 +36,7 @@ const tokenGenerator= {
   name: "Token Generator",
   slug: "token-generator",
   description: "generate custome tokens",
-  category: "Secuirty",
+  category: "Security",
   version: "8.55.0",
   tags: ["Security", "Token"],
   generate: (options: TokenOptions) => generateToken(options),

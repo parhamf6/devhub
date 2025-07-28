@@ -25,29 +25,29 @@ const footerSections = [
     {
         label: 'Community',
         links: [
-        { title: 'Join Discord', href: 'https://discord.gg/' },
-        { title: 'Join Telegram', href: 'https://discord.gg/' },
-        { title: 'GitHub', href: 'https://github.com/' },
-        { title: 'Contribute', href: '/contribute' },
+        // { title: 'Join Discord', href: 'https://discord.gg/' },
+        // { title: 'Join Telegram', href: 'https://discord.gg/' },
+        { title: 'GitHub', href: 'https://github.com/parhamf6/devhub' },
+        { title: 'Contribute', href: 'https://github.com/parhamf6/devhub' },
         ],
     },
     {
         label: 'Support',
         links: [
-        { title: 'FAQs', href: '/FAQs' },
+        // { title: 'FAQs', href: '/FAQs' },
         { title: 'Contact Support', href: '/contact' },
-        { title: 'Report a Bug', href: '/bug-report' },
-        { title: 'Feedback', href: '/feedback' },
+        { title: 'Report a Bug', href: 'https://github.com/parhamf6/devhub' },
+        { title: 'Feedback', href: 'https://github.com/parhamf6/devhub' },
         ],
     },
-    {
-        label: 'Legal',
-        links: [
-        { title: 'Privacy Policy', href: '/privacy' },
-        { title: 'Terms of Service', href: '/terms' },
-        { title: 'Cookie Settings', href: '/cookies' },
-        ],
-    },
+    // {
+    //     label: 'Legal',
+    //     links: [
+    //     { title: 'Privacy Policy', href: '/privacy' },
+    //     { title: 'Terms of Service', href: '/terms' },
+    //     { title: 'Cookie Settings', href: '/cookies' },
+    //     ],
+    // },
 ];
 
 export function FooterV2() {
