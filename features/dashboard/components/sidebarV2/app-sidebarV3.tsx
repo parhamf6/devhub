@@ -59,6 +59,10 @@ const data = {
             url: "/dashboard/tools/categories?category=Secuirty",
             },
             {
+            title: "Text",
+            url: "/dashboard/tools/categories?category=Text",
+            },
+            {
             title: "Favorites",
             url: "/dashboard/tools/favorite",
             },

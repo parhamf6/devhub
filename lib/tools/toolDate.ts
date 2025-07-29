@@ -25,6 +25,13 @@ export const tools: ToolCardProps[] = [
     version: "1.0.0",
     tags: ["Security", "JWT", "Token", "Authentication", "Decode", "Encode"],
   },
+  {
+    slug: "base64",
+    name: "Base64 Encoder/Decoder",
+    description: "Convert text or files to/from Base64. Useful for encoding tokens, images, and binary data.",
+    category: "Text",
+    tags: ["text", "encode", "decode", "base64", "file"],
+  }
 ];
 
 // Future: Uncomment to use localStorage
