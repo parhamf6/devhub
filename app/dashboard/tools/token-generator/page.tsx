@@ -20,6 +20,7 @@ import tokenGenerator from '@/lib/tools/tool/token-generator';
 import { Card, CardContent } from '@/components/ui/card';
 // import { LearnDialog } from '@/features/dashboard/tools/components/learn-dialog';
 import { LearnButton } from '@/features/dashboard/tools/components/learn-button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 const tool = tokenGenerator
 
 export default function TokenGeneratorPage() {
@@ -114,16 +115,25 @@ export default function TokenGeneratorPage() {
         </div>
 
         <Card className="relative w-full overflow-x-scroll   sm:overflow-hidden flex items-center justify-between gap-2 p-4 font-mono text-sm">
-            <span className="break-words text-wrap">{token || 'Please select at least one character type'}</span>
-
             <div className="flex gap-1 shrink-0">
-                <Button size="icon" variant="ghost" onClick={generate}>
-                    <RefreshCcw className="w-4 h-4" />
-                </Button>
-                <Button size="icon" variant="ghost" onClick={handleCopy}>
-                    <Copy className="w-4 h-4" />
-                </Button>
+                <Tooltip>
+                    <TooltipTrigger asChild >
+                        <Button size="icon" variant="ghost" onClick={generate}>
+                            <RefreshCcw className="w-4 h-4" />
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Generate Token</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger asChild >
+                        <Button size="icon" variant="ghost" onClick={handleCopy}>
+                            <Copy className="w-4 h-4" />
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Copy Token</TooltipContent>
+                </Tooltip>
             </div>
+            <span className="break-words text-wrap">{token || 'Please select at least one character type'}</span>
         </Card>
         </div>
     );
