@@ -239,7 +239,6 @@ const defaultOptions: ConversionOptions = {
             <Tooltip>
                 <TooltipTrigger asChild>
                 <Button
-                    size="icon"
                     variant="ghost"
                     onClick={() => setShowSettings(v => !v)}
                     aria-label="Show settings"
@@ -252,30 +251,7 @@ const defaultOptions: ConversionOptions = {
             </Tooltip>
             <span className="text-muted-foreground text-xs">Lines: {inputLines} | Chars: {inputChars}</span>
             <span className="text-muted-foreground text-xs">Output Lines: {outputLines} | Chars: {outputChars}</span>
-            <Tooltip>
-                <TooltipTrigger asChild>
-                <Button size="sm" variant="outline" onClick={handleExample}>
-                    <Zap className="w-4 h-4" /> Example
-                </Button>
-                </TooltipTrigger>
-                <TooltipContent>Load example {options.mode === 'json-to-yaml' ? 'JSON' : 'YAML'}</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-                <TooltipTrigger asChild>
-                <Button size="sm" variant="outline" onClick={handleClear}>
-                    <Trash2 className="w-4 h-4" /> Clear All
-                </Button>
-                </TooltipTrigger>
-                <TooltipContent>Clear input and output</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-                <TooltipTrigger asChild>
-                <Button size="sm" variant="outline" onClick={() => setShowHistory(v => !v)}>
-                    <History className="w-4 h-4" /> History
-                </Button>
-                </TooltipTrigger>
-                <TooltipContent>Show conversion history</TooltipContent>
-            </Tooltip>
+
             </div>
             {showSettings && (
             <div className="flex flex-wrap gap-4 items-center bg-muted/50 rounded-lg p-4 border border-border">
@@ -358,38 +334,67 @@ const defaultOptions: ConversionOptions = {
             )}
 
             {/* Direction Toggle */}
-            <div className="flex items-center gap-4">
-            <Button
-                variant={options.mode === 'json-to-yaml' ? 'default' : 'outline'}
-                onClick={() => {
-                setOptions(prev => ({ ...prev, mode: 'json-to-yaml' }));
-                convert(input, { ...options, mode: 'json-to-yaml' });
-                }}
-            >
-                JSON → YAML
-            </Button>
-            <Button
-                variant={options.mode === 'yaml-to-json' ? 'default' : 'outline'}
-                onClick={() => {
-                setOptions(prev => ({ ...prev, mode: 'yaml-to-json' }));
-                convert(input, { ...options, mode: 'yaml-to-json' });
-                }}
-            >
-                YAML → JSON
-            </Button>
-            <Tooltip>
+            <div className="flex flex-col  gap-4">
+            <div className='flex flex-wrap gap-4'>
+                <Tooltip>
                 <TooltipTrigger asChild>
-                <Button
-                    variant="secondary"
-                    onClick={handleSwap}
-                    className="flex items-center gap-2"
-                >
-                    <Shuffle className="w-4 h-4" />
-                    Swap
+                <Button size="sm" variant="outline" onClick={handleExample}>
+                    <Zap className="w-4 h-4" /> Example
                 </Button>
                 </TooltipTrigger>
-                <TooltipContent>Swap direction</TooltipContent>
-            </Tooltip>
+                <TooltipContent>Load example {options.mode === 'json-to-yaml' ? 'JSON' : 'YAML'}</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                    <Button size="sm" variant="outline" onClick={handleClear}>
+                        <Trash2 className="w-4 h-4" /> Clear All
+                    </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Clear input and output</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                    <Button size="sm" variant={showHistory ? "secondary" : "outline"} onClick={() => setShowHistory(v => !v)}>
+                        <History className="w-4 h-4" /> History
+                    </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Show conversion history</TooltipContent>
+                </Tooltip>
+            </div>
+            <div className='flex  gap-4 flex-wrap'>
+                <Button
+                    variant={options.mode === 'json-to-yaml' ? 'default' : 'outline'}
+                    onClick={() => {
+                    setOptions(prev => ({ ...prev, mode: 'json-to-yaml' }));
+                    convert(input, { ...options, mode: 'json-to-yaml' });
+                    }}
+                >
+                    JSON → YAML
+                </Button>
+                <Button
+                    variant={options.mode === 'yaml-to-json' ? 'default' : 'outline'}
+                    onClick={() => {
+                    setOptions(prev => ({ ...prev, mode: 'yaml-to-json' }));
+                    convert(input, { ...options, mode: 'yaml-to-json' });
+                    }}
+                >
+                    YAML → JSON
+                </Button>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                    <Button
+                        variant="secondary"
+                        onClick={handleSwap}
+                        className="flex items-center gap-2"
+                    >
+                        <Shuffle className="w-4 h-4" />
+                        Swap
+                    </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Swap direction</TooltipContent>
+                </Tooltip>
+            </div>
+            
             </div>
 
             {/* Editors */}
@@ -398,7 +403,7 @@ const defaultOptions: ConversionOptions = {
             <Card className="flex-1 flex flex-col bg-card border border-border">
                 <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-popover rounded-t-lg">
                 <span className="font-medium text-sm">Input</span>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap">
                     <input
                     ref={fileInputRef}
                     type="file"
