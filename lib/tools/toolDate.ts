@@ -14,7 +14,7 @@ export const tools: ToolCardProps[] = [
     slug: 'uuid-generator',
     description: 'Generate v1 and v4 UUIDs with formatting options.',
     category: 'Generator',
-    version: "0.0.1",
+    version: "1.0.0",
     tags: ['uuid', 'identifier'],
   },
   {
@@ -30,8 +30,17 @@ export const tools: ToolCardProps[] = [
     name: "Base64 Encoder/Decoder",
     description: "Convert text or files to/from Base64. Useful for encoding tokens, images, and binary data.",
     category: "Text",
+    version: "1.0.0",
     tags: ["text", "encode", "decode", "base64", "file"],
-  }
+  },
+  {
+    name: "JSON/YAML Converter",
+    slug: "json-yaml-converter",
+    description: "Advanced JSON ⇄ YAML converter with validation, formatting and more",
+    category: "Development",
+    version: "1.0.0",
+    tags: ["JSON", "YAML", "Converter", "Formatter", "Validator"],
+  }  
 ];
 
 // Future: Uncomment to use localStorage
