@@ -40,7 +40,15 @@ export const tools: ToolCardProps[] = [
     category: "Development",
     version: "1.0.0",
     tags: ["JSON", "YAML", "Converter", "Formatter", "Validator"],
-  }  
+  },
+  {
+    name: "Hash Generator",
+    slug: "hash-generator",
+    description: "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files",
+    category: "Security",
+    version: "1.0.0",
+    tags: ["Security", "Hash", "Cryptography", "MD5", "SHA"],
+  }
 ];
 
 // Future: Uncomment to use localStorage
