@@ -20,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { getCategoryColor } from "@/lib/tools/categories";
+import { useRouter } from "next/navigation";
 export type ToolCardProps = {
   name: string;
   description: string;
@@ -46,6 +47,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
   withFavoriteToggle = false,
 }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("devhub-favorites") || "[]");
@@ -161,7 +163,12 @@ export const ToolCard: React.FC<ToolCardProps> = ({
         {/* Use button */}
         <div className=" bg-gradient-to-br from-primary to-muted border-2 hover:scale-105 border-border p-2 rounded-[16px]
         text-sm font-medium   duration-300 transition-transform">
-          <Link href={`/dashboard/tools/${slug}`} className="flex gap-2 items-center justify-center">
+          {/* <Link href={`/dashboard/tools/${slug}`} className="flex gap-2 items-center justify-center">
+            Use {name} <ChevronRight className="w-4 h-4" />
+          </Link> */}
+          <Link href={`/dashboard/tools/${slug}`} className="flex gap-2 items-center justify-center"
+            onMouseEnter={() => router.prefetch(`/dashboard/tools/${slug}`) }
+          >
             Use {name} <ChevronRight className="w-4 h-4" />
           </Link>
         </div>

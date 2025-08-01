@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-1 pt-[56px] h-full">
             {/* Make sure AppSidebar doesn't overlap navbar */}
             <div className="h-full">
-                <AppSidebar />
+                {/* <AppSidebar /> */}
                 {/* <AppSidebarV2 /> */}
                 <AppSidebarV3 />
             </div>

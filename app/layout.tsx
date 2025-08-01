@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes"
 import "./globals.css";
 import Navbar from "@/components/navbar";
 
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,8 +33,9 @@ export default function RootLayout({
         className="bg-background"
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-    {children}
-  </ThemeProvider>
+          {/* <Navbar /> */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

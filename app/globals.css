@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import 'nprogress/nprogress.css';
 :root {
   --background: oklch(0.96 0.0045 258.3245); /* ↓ slightly darker for contrast */
   --foreground: oklch(0.2558 0.0433 268.0662);
@@ -372,3 +372,4 @@ pre::-webkit-scrollbar-thumb:hover {
   quotes: none;
   font-style: normal;
 }
+
