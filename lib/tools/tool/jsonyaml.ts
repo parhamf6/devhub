@@ -3,6 +3,7 @@ import * as yaml from 'js-yaml';
 // import * as yaml from 'js-yaml'
 export type ConversionMode = 'json-to-yaml' | 'yaml-to-json' | 'auto-detect';
 export type OutputFormat = 'pretty' | 'minified' | 'compact';
+import { ToolSchema } from '../tool-schema';
 
 export interface ConversionOptions {
   mode: ConversionMode;
@@ -166,7 +167,7 @@ class JsonYamlConverter {
       return JSON.stringify(parsed);
     } else {
       const space = options.outputFormat === 'pretty' ? options.indentSize : 0;
-      return JSON.stringify(parsed, options.sortKeys ? Object.keys(parsed as object).sort() : null, space);
+      return JSON.stringify(parsed, options.sortKeys ? Object.keys(parsed as object).sort((a, b) => a.localeCompare(b)) : null, space);
     }
   }
 

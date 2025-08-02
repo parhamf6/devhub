@@ -46,12 +46,6 @@ function stringToArrayBuffer(str: string, encoding: Encoding = 'UTF-8'): ArrayBu
       bytes[i] = str.charCodeAt(i) & 0xFF;
     }
     return bytes.buffer;
-  } else if (encoding === 'Latin1') {
-    const bytes = new Uint8Array(str.length);
-    for (let i = 0; i < str.length; i++) {
-      bytes[i] = str.charCodeAt(i) & 0xFF;
-    }
-    return bytes.buffer;
   }
   return new TextEncoder().encode(str);
 }
@@ -111,12 +105,15 @@ function simpleRIPEMD160(input: string): string {
 }
 
 function simpleBLAKE2b(input: string): string {
-  // Simplified BLAKE2b implementation
-  let hash = 0x6A09E667F3BCC908;
+  let hash = 0x6A09E667F3BCC908n; // ← note the "n" for BigInt
+
   for (let i = 0; i < input.length; i++) {
-    hash = ((hash * 31) + input.charCodeAt(i)) & 0xFFFFFFFFFFFFFFFF;
+    hash = (hash * 31n + BigInt(input.charCodeAt(i))) & 0xFFFFFFFFFFFFFFFFn;
   }
-  return Math.abs(hash).toString(16).padStart(64, '0');
+
+  return hash < 0n
+    ? (-hash).toString(16).padStart(64, '0')
+    : hash.toString(16).padStart(64, '0');
 }
 
 function simpleSHA3(input: string, bits: number): string {

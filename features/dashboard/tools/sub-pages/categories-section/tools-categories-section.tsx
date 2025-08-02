@@ -36,7 +36,7 @@ export default function ToolsCategoriesPageSection() {
 
   const categories = useMemo(() => {
     const set = new Set(tools.map(tool => tool.category))
-    return Array.from(set).sort()
+    return Array.from(set).sort((a, b) => a.localeCompare(b))
   }, [])
 
   const filteredTools = useMemo(() => {

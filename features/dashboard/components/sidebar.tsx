@@ -134,7 +134,7 @@ const DevHubSidebar: React.FC<DevHubSidebarProps> = ({
 
     return (
       <div className="w-full">
-        <div
+        <button
           className={`
             flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-all duration-200 group
             ${isActive ? 'bg-sidebar-primary text-sidebar-primary-foreground' : 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'}
@@ -168,7 +168,7 @@ const DevHubSidebar: React.FC<DevHubSidebarProps> = ({
               )}
             </>
           )}
-        </div>
+        </button>
 
         {!isCollapsed && hasChildren && isExpanded && (
           <div className="mt-1 space-y-1">
@@ -254,7 +254,7 @@ const DevHubSidebar: React.FC<DevHubSidebarProps> = ({
         ) : (
           // UNAUTHENTICATED USER: Shows sign in option
           <div className="flex items-center gap-2">
-            <div 
+            <button 
               className="flex items-center justify-center gap-2 px-3 py-2 bg-sidebar-primary text-sidebar-primary-foreground rounded-lg hover:bg-sidebar-primary/90 transition-colors duration-200 cursor-pointer flex-1"
               onClick={() => {
                 // CONFIGURATION: Add your sign in logic here
@@ -263,7 +263,7 @@ const DevHubSidebar: React.FC<DevHubSidebarProps> = ({
             >
               <LogIn size={14} />
               {!isCollapsed && <span className="text-xs font-medium">Sign In</span>}
-            </div>
+            </button>
             {!isCollapsed && (
               <div className="w-7 h-7 bg-sidebar-accent/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-sidebar-accent/30 transition-colors duration-200">
                 <User size={14} className="text-sidebar-foreground" />

@@ -104,5 +104,5 @@ export async function getPostsByCategory(category: string): Promise<MDXPost[]> {
 export async function getAllCategories(): Promise<string[]> {
   const allPosts = await getAllPosts()
   const categories = new Set(allPosts.map(post => post.frontMatter.category))
-  return Array.from(categories).sort()
+  return Array.from(categories).sort((a, b) => a.localeCompare(b))
 }

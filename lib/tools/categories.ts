@@ -2,7 +2,7 @@ import { tools } from "./toolDate";
 
 export const categories = Array.from(
     new Set(tools.map(tool => tool.category))
-).sort();
+).sort((a, b) => a.localeCompare(b));
 
 
 export const getCategoryColor = (category: string) => {

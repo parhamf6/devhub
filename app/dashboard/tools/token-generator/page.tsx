@@ -18,7 +18,6 @@ import {
 } from '@/components/ui/dialog';
 import tokenGenerator from '@/lib/tools/tool/token-generator';
 import { Card, CardContent } from '@/components/ui/card';
-// import { LearnDialog } from '@/features/dashboard/tools/components/learn-dialog';
 import { LearnButton } from '@/features/dashboard/tools/components/learn-button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 const tool = tokenGenerator

@@ -37,7 +37,7 @@ export default function ToolsTagsPageSection() {
   // Get all unique tags
   const tags = useMemo(() => {
     const tagSet = new Set(tools.flatMap(tool => tool.tags || []))
-    return Array.from(tagSet).sort()
+    return Array.from(tagSet).sort((a, b) => a.localeCompare(b))
   }, [])
 
   // Filter tools by selected tag and search

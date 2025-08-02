@@ -534,7 +534,7 @@ const defaultOptions: ConversionOptions = {
                 {history.length > 0 && (
                     <div className="flex flex-col gap-2 max-h-60 overflow-y-auto">
                     {history.map((item, idx) => (
-                        <div
+                        <button
                         key={idx}
                         className="p-2 rounded hover:bg-accent cursor-pointer transition"
                         onClick={() => handleHistoryRestore(item as any)}
@@ -545,7 +545,7 @@ const defaultOptions: ConversionOptions = {
                         <div className="text-xs text-muted-foreground opacity-70">
                             {item.output?.slice(0, 40)}...
                         </div>
-                        </div>
+                        </button>
                     ))}
                     </div>
                 )}
