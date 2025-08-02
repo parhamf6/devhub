@@ -48,6 +48,14 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["Security", "Hash", "Cryptography", "MD5", "SHA"],
+  },
+  {
+    name: "cURL Builder",
+    slug: "curl-builder",
+    description: "Advanced cURL command builder for API development, testing, and debugging.",
+    category: "Networking",
+    version: "1.0.0",
+    tags: ["API", "HTTP", "cURL", "Networking", "Builder"],
   }
 ];
 
