@@ -56,6 +56,14 @@ export const tools: ToolCardProps[] = [
     category: "Networking",
     version: "1.0.0",
     tags: ["API", "HTTP", "cURL", "Networking", "Builder"],
+  },
+  {
+    name: "Color Tool",
+    slug: "color",
+    description: "Advanced color manipulation and palette generation tool",
+    category: "Design",
+    version: "1.0.0",
+    tags: ["Design", "Color", "Accessibility", "CSS"],
   }
 ];
 
