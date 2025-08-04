@@ -19,6 +19,9 @@ module.exports = {
       animation: {
         shine: 'shine 5s linear infinite',
       },
+      fontFamily: {
+        sans: ['var(--font-poppins)'],
+      },
     },
   },
   prefix: "",
