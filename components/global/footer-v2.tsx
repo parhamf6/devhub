@@ -18,8 +18,8 @@ const footerSections = [
         links: [
         { title: 'About Us', href: '/about' },
         { title: 'Blog', href: '/blog' },
-        { title: 'Changelog', href: '/changelog' },
-        { title: 'Roadmap', href: '/roadmap' },
+        { title: 'Changelog', href: '/about#changelog' },
+        { title: 'Roadmap', href: '/about#changelog' },
         ],
     },
     {

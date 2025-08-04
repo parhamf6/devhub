@@ -44,6 +44,9 @@ export default function IntroSide() {
                     </p>
                 </div>
             </div>
+            <div>
+                <h1 className="text-accent">By the way its Free and open-source</h1>
+            </div>
             <div className="flex gap-4 flex-wrap justify-center items-center mt-6">
                 <div>
                     {/* <p>Get Started</p> */}

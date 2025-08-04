@@ -30,7 +30,7 @@ type SpotlightCardProps = {
 
 
 const SpotlightCard = ({ children, className = "", spotlightColor }: SpotlightCardProps) => (
-    <div className={`relative overflow-hidden bg-card border border-border rounded-[var(--radius)] p-6 hover:border-primary/50 transition-all duration-300 group ${className}`}>
+    <div className={`relative flex items-center justify-between flex-col overflow-hidden bg-card border border-border rounded-[var(--radius)] p-6 hover:border-primary/50 transition-all duration-300 group ${className}`}>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="relative z-10">{children}</div>
     </div>
@@ -100,60 +100,59 @@ export default function SupportPage2() {
     const supportOptions = [
     {
         icon: Share2,
-        title: "Tell Your Friends",
-        description: "Help us grow by sharing DevHub with your developer community and friends",
-        details: "Word of mouth is the best way to help open source projects grow. Share our project on social media, mention us in your blog posts, or simply tell your fellow developers about us!",
-        action: "Share Now",
+        title: "Spread the Love",
+        description: "We’d be thrilled if you shared DevHub with your friends and community!",
+        details: "We love every single person in our community, and word-of-mouth is the heart of open source growth. Share DevHub on social media, chat with your developer pals, or mention us in your blog posts—you’ll be helping fellow builders discover a place they can call home!",
+        action: "Share the Love",
         color: "from-blue-500/20 to-cyan-500/20",
         iconColor: "text-blue-500",
         links: [
-            { icon: Twitter, label: "Tweet about us", href: "#" },
-            { icon: MessageSquare, label: "Share on Discord", href: "#" },
-            { icon: Github, label: "Fork & Share", href: "#" }
+        { icon: Twitter, label: "Tweet about DevHub", href: "#" },
+        { icon: MessageSquare, label: "Share on Discord", href: "#" },
+        { icon: Github, label: "Fork & Share", href: "#" }
         ]
     },
     {
         icon: Star,
-        title: "Give us a GitHub Star",
-        description: "Star our repository to show your support and help us reach more developers",
-        details: "GitHub stars are like a vote of confidence for open source projects. They help us gain visibility, attract contributors, and show potential users that our project is worth trying.",
-        action: "Star on GitHub",
+        title: "Show Some ❤️ on GitHub",
+        description: "Star our repository to let us know you’re enjoying DevHub!",
+        details: "Every star is a hug from the community—helping us reach more developers and showing support. It’s quick, it’s easy, and it means the world to us!",
+        action: "Star DevHub",
         color: "from-yellow-500/20 to-orange-500/20",
         iconColor: "text-yellow-500",
-        stats: "15k+ stars and growing!",
         links: [
-            { icon: Github, label: "DevHub Repository", href: "#" },
-            { icon: ExternalLink, label: "View Source Code", href: "#" }
+        { icon: Github, label: "DevHub Repository", href: "#" },
+        { icon: ExternalLink, label: "View Source Code", href: "#" }
         ]
     },
     {
         icon: Trophy,
-        title: "Become a Sponsor",
-        description: "Support our development with sponsorship and get featured on our main page",
-        details: "Sponsorship helps us dedicate more time to development, maintain infrastructure, and create better documentation. Sponsors get recognition and can help shape our roadmap.",
+        title: "Join Our Sponsor Family",
+        description: "Become a sponsor and help us build DevHub even better—together.",
+        details: "Sponsorship lets us dedicate more time to crafting new features, improving docs, and keeping infrastructure running smoothly. As a sponsor, you’ll get special recognition, sneak peeks, and the chance to shape our future roadmap!",
         action: "Become a Sponsor",
         color: "from-purple-500/20 to-pink-500/20",
         iconColor: "text-purple-500",
         benefits: [
-            "Logo on our main page",
-            "Priority support",
-            "Influence on roadmap",
-            "Monthly progress reports"
+        "Your logo on our homepage",
+        "Priority support and feedback",
+        "Input on upcoming features",
+        "Monthly progress updates"
         ]
     },
     {
         icon: Coffee,
-        title: "Make a Donation",
-        description: "Your direct financial support helps us maintain and improve the project",
-        details: "Donations help us cover hosting costs, development tools, and allow maintainers to spend more time on the project. Every contribution, no matter how small, makes a difference!",
+        title: "Buy Us a Coffee",
+        description: "Fuel our passion—your donation keeps DevHub thriving!",
+        details: "Every bit of support powers hosting costs, new tooling, and lets maintainers spend more time building features you love. We appreciate every cup—and every contributor—big or small!",
         action: "Donate Now",
         color: "from-green-500/20 to-emerald-500/20",
         iconColor: "text-green-500",
         options: [
-            "One-time donation",
-            "Monthly recurring",
-            "Buy us a coffee",
-            "Crypto donations"
+        "One-time donation",
+        "Monthly support",
+        "Buy us a coffee",
+        "Crypto contributions"
         ]
     }
     ];
@@ -231,7 +230,7 @@ export default function SupportPage2() {
                 variants={fadeUpVariant}
                 className="group"
                 >
-                <SpotlightCard className="h-full hover:shadow-lg transition-all duration-300">
+                <SpotlightCard className="h-full hover:shadow-lg transition-all duration-300 flex items-center justify-between">
                     <div className="flex flex-col h-full">
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-6">

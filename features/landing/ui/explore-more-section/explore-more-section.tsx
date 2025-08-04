@@ -17,7 +17,7 @@ export default function ExploreMoreSection() {
                     />
                 </div>
                 <motion.a
-                        href="#features"
+                        href="#FAQ"
                         whileHover={{ x: 4 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                         className=" flex items-center border-2 gap-2 rounded-2xl  px-6 py-3 text-lg font-semibold text-secondary bg-primary   shadow-md transition-colors"
@@ -37,7 +37,7 @@ export default function ExploreMoreSection() {
                     />
                 </div>
                 <motion.a
-                        href="#features"
+                        href="support"
                         whileHover={{ x: 4 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                         className=" flex items-center border-2 gap-2 rounded-2xl  px-6 py-3 text-lg font-semibold text-primary bg-secondary  shadow-md transition-colors"

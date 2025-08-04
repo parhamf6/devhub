@@ -373,3 +373,6 @@ pre::-webkit-scrollbar-thumb:hover {
   font-style: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}

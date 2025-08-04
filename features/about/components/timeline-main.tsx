@@ -5,7 +5,7 @@ import { Timeline } from "./timeline-component";
 export function TimelineDemo() {
     const data = [
         {
-        title: "July 2024",
+        title: "July 2025",
         content: (
             <div>
             <p className=" text-xs md:text-sm font-normal mb-8">
@@ -18,20 +18,12 @@ export function TimelineDemo() {
         ),
         },
         {
-        title: "Early 2023",
+        title: "August 2025",
         content: (
             <div>
             <p className=" text-xs md:text-sm font-normal mb-8">
-                I usually run out of copy, but when I see content this big, I try to
-                integrate lorem ipsum.
+                lunch the first mvp on vercel
             </p>
-            <p className=" text-xs md:text-sm font-normal mb-8">
-                Lorem ipsum is for people who are too lazy to write copy. But we are
-                not. Here are some more example of beautiful designs I built.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-                
-            </div>
             </div>
         ),
         },
@@ -39,33 +31,51 @@ export function TimelineDemo() {
         title: "Changelog",
         content: (
             <div>
-            <p className=" text-xs md:text-sm font-normal mb-4">
-                Deployed 5 new components on Aceternity today
+            <p className="text-xs md:text-sm font-normal mb-4">
+                We’re excited to share the latest DevHub updates! Over the past week, we’ve shipped powerful new tools, polished key UI elements, and squashed bugs to keep your developer journey smooth.
             </p>
             <div className="mb-8">
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Card grid component
+                ✅ Added JSON/CSV Converter tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Startup template Aceternity
+                ✅ Launched Color Picker tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Random file upload lol
+                ✅ Released cURL Builder tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Himesh Reshammiya Music CD
+                ✅ Introduced Hash Text Generator tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Salman Bhai Fan Club registrations open
+                ✅ Added JSON/YAML Converter tool
                 </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-                
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Ship Base64 Encoder/Decoder tool
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ New JWT Encoder/Decoder tool
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Built "Under Development" page & enhanced Navbar tooltips
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Improved ToolCard prefetch & "Show Favorite" contrast
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Tweaked layouts on Token Generator & JSON/YAML pages
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                🐛 Fixed build issues with useSearchParams & temporarily disabled ESLint/type checks
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                🐛 Integrated Poppint font using Next Font
+                </div>
             </div>
             </div>
         ),
-        },
-    ];
+        }
+            ];
     return (
         <div className="min-h-screen w-full">
         <div className=" w-full">

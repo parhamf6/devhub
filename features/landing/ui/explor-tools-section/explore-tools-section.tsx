@@ -1,39 +1,41 @@
 import { ToolCard, ToolCardProps } from "@/components/tool-card";
 import ExploreCTA from "../feature-section/components/explor-button";
 import { AnimatedText } from "../../../../components/text-animation/underline-text";
+import { motion } from "framer-motion";
+import { tools as allTools } from "@/lib/tools/toolDate";
+// const tools: ToolCardProps[] = [
+//     {
+//         name: "ESLint",
+//         slug: "eslint1",
+//         description: "Pluggable linting utility for JavaScript and JSX.",
+//         category: "Linting",
+//         version: "8.55.0",
+//         tags: ["javascript", "quality", "code"],
+//         iconUrl: "/icons/eslint.png",
+//     },
+//     {
+//         name: "ESLint",
+//         slug: "eslint2",
+//         description: "Pluggable linting utility for JavaScript and JSX.",
+//         category: "Linting",
+//         version: "8.55.0",
 
-const tools: ToolCardProps[] = [
-    {
-        name: "ESLint",
-        slug: "eslint1",
-        description: "Pluggable linting utility for JavaScript and JSX.",
-        category: "Linting",
-        version: "8.55.0",
-        tags: ["javascript", "quality", "code"],
-        iconUrl: "/icons/eslint.png",
-    },
-    {
-        name: "ESLint",
-        slug: "eslint2",
-        description: "Pluggable linting utility for JavaScript and JSX.",
-        category: "Linting",
-        version: "8.55.0",
+//         tags: ["javascript", "quality", "code"],
+//         iconUrl: "/icons/eslint.png",
+//     },
+//     {
+//         name: "ESLint",
+//         slug: "eslint3",
+//         description: "Pluggable linting utility for JavaScript and JSX.",
+//         category: "Linting",
+//         version: "8.55.0",
+//         tags: ["javascript", "quality", "code"],
+//         iconUrl: "/icons/eslint.png",
+//     },
+//   // Add more tool objects here
+// ];
 
-        tags: ["javascript", "quality", "code"],
-        iconUrl: "/icons/eslint.png",
-    },
-    {
-        name: "ESLint",
-        slug: "eslint3",
-        description: "Pluggable linting utility for JavaScript and JSX.",
-        category: "Linting",
-        version: "8.55.0",
-        tags: ["javascript", "quality", "code"],
-        iconUrl: "/icons/eslint.png",
-    },
-  // Add more tool objects here
-];
-
+const tools = allTools.slice(-4,-1)
 
 export default function ExploreToolsSection() {
     return(
@@ -55,7 +57,16 @@ export default function ExploreToolsSection() {
             </div>
             <div className="flex flex-wrap gap-4 items-center justify-center">
                 {tools.map((tool) => (
-                    <ToolCard key={tool.slug} {...tool} />
+                    <motion.div
+                        key={tool.slug}
+                        whileHover={{ scale: 1.03 }}
+                        className="relative"
+                    >
+                        <ToolCard
+                        {...tool}
+                        withFavoriteToggle
+                        />
+                    </motion.div>
                 ))}
             </div>
         </div>

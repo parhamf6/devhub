@@ -59,7 +59,7 @@ const TabsContent = React.forwardRef<
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-type ViewType = "general" | "icons" | "library";
+type ViewType = "general" | "features" | "technical" | "account";
 
 interface FAQItem {
     question: string;
@@ -79,86 +79,125 @@ interface FAQAccordionProps {
 
 const FAQ_SECTIONS: Record<ViewType, FAQSection> = {
     general: {
-        category: "General",
+        category: "General Questions",
         items: [
-        {
-            id: "what-is",
-            question: "What is ShapeX UI?",
-            answer:
-            "ShapeX UI is a comprehensive design system and UI kit that helps designers and developers create consistent, beautiful interfaces.",
-        },
-        {
-            id: "why-need",
-            question: "Why do I need a UI kit?",
-            answer:
-            "A UI kit helps maintain consistency across your projects, speeds up your workflow, and ensures best practices in design and development.",
-        },
-        {
-            id: "what does it offer",
-            question: "What is this UI library, and what does it offer?",
-            answer:
-            "This UI library is built on top of ShadCN UI and includes 30+ pre-designed components such as headers, footers, login forms, sign-up forms, FAQs, CTAs, contact sections, and more. It allows developers to quickly build high-quality user interfaces with ease.",
-        },
-        {
-            id: "tech stack",
-            question: "Is this library compatible with my project’s tech stack?",
-            answer:
-            "Yes, the library is compatible with modern JavaScript frameworks like React.js and Next.js. It is designed to integrate seamlessly with Tailwind CSS, as it is built on ShadCN UI principles.",
-        },
-        {
-            id: "design needs",
-            question: "Can I customize the components to fit my design needs?",
-            answer:
-            "Absolutely! All components are fully customizable and allow you to tweak styles, variants, and layouts using Tailwind CSS or additional configurations.",
-        },
-        {
-            id: "dark mode",
-            question: "Does this library support dark mode?",
-            answer:
-            "Yes, the library fully supports dark mode out of the box. You can toggle between light and dark themes or configure the components to match your application's theme.",
-        },
-        {
-            id: "mobile-friendly",
-            question: "Are the components responsive and mobile-friendly?",
-            answer:
-            "Yes, all components are designed to be fully responsive, ensuring that they look great on devices of all sizes, from desktops to mobile phones.",
-        },
-        {
-            id: "open-source or paid",
-            question: "Is this library open-source or paid?",
-            answer: "The library is open-source.",
-        },
-        {
-            id: "request new features",
-            question:
-            "How can I contribute to or request new features for the library?",
-            answer:
-            "Contributions are welcome! You can open issues or pull requests on our GitHub repository.",
-        },
-        ],
+            {
+                id: "what-is-devtools",
+                question: "What is DevTools Hub?",
+                answer: "DevTools Hub is a comprehensive platform that provides developers with a collection of essential tools, utilities, and resources to streamline their development workflow. It offers various features from code converters to formatters, all in one place."
+            },
+            {
+                id: "who-is-it-for",
+                question: "Who can benefit from using DevTools Hub?",
+                answer: "DevTools Hub is designed for developers, programmers, web designers, and tech enthusiasts who need quick access to development tools. Whether you're a beginner or an experienced developer, our platform offers tools that can help streamline your workflow."
+            },
+            {
+                id: "cost",
+                question: "Is DevTools Hub free to use?",
+                answer: "Yes, DevTools Hub is completely free to use! We believe in making development tools accessible to everyone. Some advanced features might require registration, but our core tools remain free."
+            },
+            {
+                id: "account-needed",
+                question: "Do I need an account to use the tools?",
+                answer: "Most basic tools can be used without an account. However, creating a free account allows you to save your favorites, access history, and use advanced features."
+            },
+            {
+                id: "data-privacy",
+                question: "How do you handle user data and privacy?",
+                answer: "We take data privacy seriously. We don't store any of the code or content you process through our tools. All operations are performed client-side when possible, and we follow strict data protection guidelines."
+            }
+        ]
     },
-    icons: {
-        category: "Icons",
+    features: {
+        category: "Features & Tools",
         items: [
-        {
-            id: "icon-formats",
-            question: "What icon formats are supported?",
-            answer:
-            "Our icons are available in multiple formats including SVG, PDF, and AI files.",
-        },
-        ],
+            {
+                id: "available-tools",
+                question: "What types of tools are available?",
+                answer: "We offer a wide range of tools including code formatters, converters (JSON-CSV, XML-JSON), minifiers, beautifiers, diff checkers, and more. Our tools are categorized for easy access and organized by functionality."
+            },
+            {
+                id: "favorite-tools",
+                question: "Can I save my favorite tools?",
+                answer: "Yes! Registered users can bookmark their frequently used tools, creating a personalized dashboard for quick access to their most-used utilities."
+            },
+            {
+                id: "offline-access",
+                question: "Do the tools work offline?",
+                answer: "Many of our tools work offline once the page is loaded. However, some features might require an internet connection for real-time processing or updates."
+            },
+            {
+                id: "tool-categories",
+                question: "How are the tools organized?",
+                answer: "Tools are organized into categories such as Converters, Formatters, Validators, Generators, and more. You can also use the search function to quickly find specific tools."
+            },
+            {
+                id: "new-tools",
+                question: "How often do you add new tools?",
+                answer: "We regularly update our platform with new tools and features based on user feedback and emerging development needs. We aim to add new tools monthly."
+            }
+        ]
     },
-    library: {
-        category: "Hello",
+    technical: {
+        category: "Technical Support",
         items: [
-        {
-            id: "library-access",
-            question: "How do I access the library?",
-            answer:
-            "The library is available through our web platform after logging in to your account.",
-        },
-        ],
+            {
+                id: "browser-support",
+                question: "Which browsers are supported?",
+                answer: "DevTools Hub works on all modern browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version of your preferred browser for the best experience."
+            },
+            {
+                id: "max-file-size",
+                question: "Is there a file size limit for uploads?",
+                answer: "Yes, there are size limits that vary by tool. Most tools support files up to 10MB, while some may have lower limits to ensure optimal performance."
+            },
+            {
+                id: "api-access",
+                question: "Do you offer API access to the tools?",
+                answer: "We're currently working on providing API access to our tools. This feature will allow developers to integrate our tools directly into their applications."
+            },
+            {
+                id: "error-reporting",
+                question: "How can I report errors or bugs?",
+                answer: "You can report bugs through our GitHub repository or use the feedback form in the application. We actively monitor and address reported issues."
+            },
+            {
+                id: "custom-tools",
+                question: "Can I request custom tools or features?",
+                answer: "Yes! We welcome feature requests and suggestions. You can submit them through our GitHub repository or contact us directly through the platform."
+            }
+        ]
     },
+    account: {
+        category: "Account & Settings",
+        items: [
+            {
+                id: "account-benefits",
+                question: "What are the benefits of creating an account?",
+                answer: "Account holders can save tool preferences, access their usage history, create custom tool collections, and receive updates about new features and tools."
+            },
+            {
+                id: "settings-customization",
+                question: "Can I customize the interface and settings?",
+                answer: "Yes, registered users can customize their dashboard layout, set preferred tool configurations, and choose between light and dark themes."
+            },
+            {
+                id: "data-sync",
+                question: "Does my data sync across devices?",
+                answer: "Yes, your settings, favorites, and preferences are synced across all devices when you're logged into your account."
+            },
+            {
+                id: "delete-account",
+                question: "How can I delete my account?",
+                answer: "You can delete your account and all associated data through the account settings page. This action is permanent and cannot be undone."
+            },
+            {
+                id: "password-reset",
+                question: "How do I reset my password?",
+                answer: "You can reset your password by clicking the 'Forgot Password' link on the login page. We'll send you instructions to reset your password via email."
+            }
+        ]
+    }
 };
 
 const FAQAccordion: React.FC<FAQAccordionProps> = ({ category, items }) => (
@@ -183,7 +222,7 @@ export const FaqsSection = () => {
     const [activeView, setActiveView] = useState<ViewType>("general");
 
     return (
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
+        <div className="container mx-auto px-4 py-16 max-w-4xl" id="FAQ">
         <header className="text-center mb-12 flex flex-wrap gap-4 items-center justify-center">
             <h1 className="text-2xl font-bold tracking-tight text-violet">
             FAQs
@@ -201,9 +240,10 @@ export const FaqsSection = () => {
             className="mb-8 max-w-xl border rounded-xl bg-background"
             >
             <TabsList className="w-full justify-start h-12 p-1">
-                <TabsTrigger value="general">General FAQs</TabsTrigger>
-                <TabsTrigger value="icons">UI Icons</TabsTrigger>
-                <TabsTrigger value="library">Library</TabsTrigger>
+                <TabsTrigger value="general">General</TabsTrigger>
+                <TabsTrigger value="features">Features</TabsTrigger>
+                <TabsTrigger value="technical">Technical</TabsTrigger>
+                <TabsTrigger value="account">Account</TabsTrigger>
             </TabsList>
             </Tabs>
         </div>
