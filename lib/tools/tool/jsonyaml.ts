@@ -388,12 +388,12 @@ class JsonYamlConverter {
 // Export the converter instance and schema
 const converterInstance = new JsonYamlConverter();
 
-const jsonYamlConverter: ToolSchema = {
+const jsonYamlConverter = {
   name: "JSON/YAML Converter",
   slug: "json-yaml-converter",
   description: "Advanced JSON ⇄ YAML converter with validation, formatting, and history",
-  category: "Development",
-//   version: "1.0.0",
+  category: "Converter",
+  version: "1.0.0",
   tags: ["JSON", "YAML", "Converter", "Formatter", "Validator"],
   converter: converterInstance,
 };

@@ -37,7 +37,7 @@ export const tools: ToolCardProps[] = [
     name: "JSON/YAML Converter",
     slug: "json-yaml-converter",
     description: "Advanced JSON ⇄ YAML converter with validation, formatting and more",
-    category: "Development",
+    category: "Converter",
     version: "1.0.0",
     tags: ["JSON", "YAML", "Converter", "Formatter", "Validator"],
   },
@@ -64,6 +64,13 @@ export const tools: ToolCardProps[] = [
     category: "Design",
     version: "1.0.0",
     tags: ["Design", "Color", "Accessibility", "CSS"],
+  },
+  {
+  name: 'JSON ↔ CSV Converter',
+  description: 'Convert between JSON and CSV formats with preview and advanced options',
+  slug: 'json-csv-converter',
+  category: 'Converter',
+  tags: ['json', 'csv', 'converter', 'data'],
   }
 ];
 
