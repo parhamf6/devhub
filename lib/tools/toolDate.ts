@@ -34,7 +34,7 @@ export const tools: ToolCardProps[] = [
     tags: ["text", "encode", "decode", "base64", "file"],
   },
   {
-    name: "JSON/YAML Converter",
+    name: "JSON ↔ YAML Converter",
     slug: "json-yaml-converter",
     description: "Advanced JSON ⇄ YAML converter with validation, formatting and more",
     category: "Converter",

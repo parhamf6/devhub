@@ -69,22 +69,6 @@ export default function DashboardSection() {
 
   return (
     <div className="p-2 pl-4 pr-4 space-y-4">
-      <div className="flex items-center justify-between gap-4 flex-wrap">
-        <div className='flex'>
-          <h1 className='font-semibold text-2xl'>Wellcome Parham</h1>
-        </div>
-        <div>
-            {now}
-          </div>
-          <div>
-            today is 22 June 2025
-          </div>
-        {/* <div className='flex items-center justify-end'>
-          <Button variant="ghost" onClick={() => setOpen(true)}>
-            <Settings className="h-5 w-5" />
-          </Button>
-        </div> */}
-      </div>
 
       {/* Responsive Layout: Tools (left) and Widgets (right) */}
       <div className="flex flex-col lg:flex-row gap-8">

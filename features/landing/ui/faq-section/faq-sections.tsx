@@ -185,7 +185,7 @@ export const FaqsSection = () => {
     return (
         <div className="container mx-auto px-4 py-16 max-w-4xl">
         <header className="text-center mb-12 flex flex-wrap gap-4 items-center justify-center">
-            <h1 className="text-2xl font-bold tracking-tight">
+            <h1 className="text-2xl font-bold tracking-tight text-violet">
             FAQs
             </h1>
             <p className="text-lg text-muted-foreground">

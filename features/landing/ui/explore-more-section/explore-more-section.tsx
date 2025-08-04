@@ -7,7 +7,7 @@ export default function ExploreMoreSection() {
     return(
         <div className="flex gap-4 p-4 m-2 flex-wrap flex-col items-center justify-center" >
             <div className="flex flex-wrap gap-8 items-center justify-center p-4 mt-4">
-                <div className="flex flex-wrap gap-4 items-center justify-center text-center">
+                <div className="flex flex-wrap gap-4 items-center justify-center text-center text-indigo">
                     <AnimatedText
                         text="Explore More In the world of Devhub"
                         textClassName="text-2xl font-bold mb-2"
@@ -27,7 +27,7 @@ export default function ExploreMoreSection() {
                 </motion.a>
             </div>
             <div className="flex flex-wrap gap-8 items-center justify-center p-4 mt-4">
-                <div className="flex flex-wrap gap-4 items-center justify-center text-center">
+                <div className="flex flex-wrap gap-4 items-center justify-center text-center text-pink">
                     <AnimatedText
                         text="Or Help us to grow"
                         textClassName="text-2xl font-bold mb-2"

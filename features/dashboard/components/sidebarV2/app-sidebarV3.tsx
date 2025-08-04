@@ -14,6 +14,12 @@ import {
   SquareTerminal,
   HomeIcon, Calendar, Home, Inbox, Search, Settings ,ChevronDown ,ToolCase
 } from "lucide-react"
+import { ChevronRight, type LucideIcon } from "lucide-react"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 import { NavMain } from "./nav-main"
 import { NavUser } from "./nav-user"
@@ -35,7 +41,7 @@ import { categories } from "@/lib/tools/categories"
 const items = [
     { title: 'Home', url: '/', icon: Home },
     { title: 'Dashboard', url: '/dashboard', icon: Inbox },
-    { title: 'Tools', url: '/dashboard/tools', icon: ToolCase },
+    // { title: 'Tools', url: '/dashboard/tools', icon: ToolCase },
 ]
 const data = {
     user: {
@@ -51,96 +57,84 @@ const data = {
         isActive: true,
         items: [
             {
-            title: "Generator",
-            url: "/dashboard/tools/categories?category=Generator",
-            },
-            {
-            title: "Security",
-            url: "/dashboard/tools/categories?category=Secuirty",
-            },
-            {
-            title: "Text",
-            url: "/dashboard/tools/categories?category=Text",
-            },
-            {
             title: "Favorites",
             url: "/dashboard/tools/favorite",
             },
             {
-                title:"Tags",
-                url:"/dashboard/tools/tags"
-            },
-            {
                 title:"Categories",
                 url:"/dashboard/tools/categories"
+            },
+            {
+                title:"Tags",
+                url:"/dashboard/tools/tags"
             }
         ],
         },
-        {
-        title: "Navigation",
-        url: "/",
-        icon: HomeIcon,
-        items: [
-            {
-            title: "Support Us",
-            url: "/support",
-            },
-            {
-            title: "Explorer",
-            url: "#",
-            },
-            {
-            title: "Quantum",
-            url: "#",
-            },
-        ],
-        },
-        {
-        title: "Documentation",
-        url: "#",
-        icon: BookOpen,
-        items: [
-            {
-            title: "Introduction",
-            url: "#",
-            },
-            {
-            title: "Get Started",
-            url: "#",
-            },
-            {
-            title: "Tutorials",
-            url: "#",
-            },
-            {
-            title: "Changelog",
-            url: "#",
-            },
-        ],
-        },
-        {
-        title: "Settings",
-        url: "#",
-        icon: Settings2,
-        items: [
-            {
-            title: "General",
-            url: "#",
-            },
-            {
-            title: "Team",
-            url: "#",
-            },
-            {
-            title: "Billing",
-            url: "#",
-            },
-            {
-            title: "Limits",
-            url: "#",
-            },
-        ],
-        },
+        // {
+        // title: "Navigation",
+        // url: "/",
+        // icon: HomeIcon,
+        // items: [
+        //     {
+        //     title: "Support Us",
+        //     url: "/support",
+        //     },
+        //     {
+        //     title: "Explorer",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Quantum",
+        //     url: "#",
+        //     },
+        // ],
+        // },
+        // {
+        // title: "Documentation",
+        // url: "#",
+        // icon: BookOpen,
+        // items: [
+        //     {
+        //     title: "Introduction",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Get Started",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Tutorials",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Changelog",
+        //     url: "#",
+        //     },
+        // ],
+        // },
+        // {
+        // title: "Settings",
+        // url: "#",
+        // icon: Settings2,
+        // items: [
+        //     {
+        //     title: "General",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Team",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Billing",
+        //     url: "#",
+        //     },
+        //     {
+        //     title: "Limits",
+        //     url: "#",
+        //     },
+        // ],
+        // },
     ],
 }
 
@@ -158,7 +152,7 @@ export function AppSidebarV3({ ...props }: React.ComponentProps<typeof Sidebar>)
                             const isActive = pathname === item.url
                             return (
                             <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton asChild>
+                                <SidebarMenuButton tooltip={item.title} asChild>
                                 <a
                                     href={item.url}
                                     className={clsx(
@@ -175,8 +169,10 @@ export function AppSidebarV3({ ...props }: React.ComponentProps<typeof Sidebar>)
                             </SidebarMenuItem>
                             )
                         })}
+                        {/* <NavMain items={data.navMain} /> */}
                         </SidebarMenu>
                     </SidebarGroupContent>
+                    
                 </SidebarGroup>
                 <div >
                     <NavMain items={data.navMain} />
@@ -185,9 +181,9 @@ export function AppSidebarV3({ ...props }: React.ComponentProps<typeof Sidebar>)
             {/* <SidebarContent>
                 <NavMain items={data.navMain} />
             </SidebarContent> */}
-            <SidebarFooter>
+            {/* <SidebarFooter>
                 <NavUser user={data.user} />
-            </SidebarFooter>
+            </SidebarFooter> */}
             <SidebarRail />
         </Sidebar>
     )

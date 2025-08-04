@@ -8,6 +8,8 @@ export const categories = Array.from(
 export const getCategoryColor = (category: string) => {
     const colors = {
         'Favorites': 'border-secondary border-2',
+        'Tags': 'border-coral border-2',
+        'Categories': 'border-teal border-2',
         'Security': 'border-coral border-2',
         'Text': 'border-teal border-2',
         'Generator' : 'border-indigo border-2',

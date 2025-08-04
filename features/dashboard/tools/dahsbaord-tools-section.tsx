@@ -50,10 +50,10 @@ export default function DashbaordToolsSection() {
           <h1 className="text-3xl font-bold text-center">🛠️ All Tools</h1>
           <Button 
           onClick={() => setShowOnlyFavorites((prev) => !prev)}
-            className={`px-4 py-2 rounded-full text-sm font-medium border ${
+            className={`px-4 py-2 rounded-md text-sm font-medium border ${
               showOnlyFavorites
-                ? "bg-secondary text-background border-secondary"
-                : "bg-transparent text-secondary border-secondary hover:bg-accent hover:text-background"
+                ? "bg-secondary text-primary border-secondary"
+                : "bg-transparent text-foreground border-secondary hover:bg-accent hover:text-background"
             } transition`}
           >
             {showOnlyFavorites ? "★ Favorites" : "☆ Show Favorites"}

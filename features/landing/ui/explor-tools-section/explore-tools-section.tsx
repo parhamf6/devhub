@@ -39,7 +39,7 @@ export default function ExploreToolsSection() {
     return(
         <div className="flex gap-4 p-4 m-2 flex-col" >
             <div className="flex flex-wrap gap-8 items-center justify-center p-4 mt-4 ">
-                <div className="flex flex-wrap gap-4 items-center justify-center text-center">
+                <div className="flex flex-wrap gap-4 items-center justify-center text-center text-teal">
                     <AnimatedText
                         text="Powerful Tools"
                         textClassName="text-2xl font-bold mb-2"

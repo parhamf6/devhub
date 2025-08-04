@@ -389,7 +389,7 @@ class JsonYamlConverter {
 const converterInstance = new JsonYamlConverter();
 
 const jsonYamlConverter = {
-  name: "JSON/YAML Converter",
+  name: "JSON ↔ YAML Converter",
   slug: "json-yaml-converter",
   description: "Advanced JSON ⇄ YAML converter with validation, formatting, and history",
   category: "Converter",

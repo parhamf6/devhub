@@ -9,7 +9,7 @@ export default function FeatureSection() {
     return(
         <div className="flex gap-4 p-4 m-2 flex-col" >
             <div className="flex flex-wrap gap-8 items-center justify-center p-4 mt-4">
-                <div className="flex flex-wrap gap-4 items-center justify-center text-center">
+                <div className="flex flex-wrap gap-4 items-center justify-center text-center text-coral">
                     <AnimatedText
                         text="Powerful Features"
                         textClassName="text-2xl font-bold mb-2"
@@ -19,9 +19,9 @@ export default function FeatureSection() {
                     />
                     <h1 className="font-semibold text-lg text-muted-foreground"> to Enhance Your Development Experience</h1>
                 </div>
-                <div className="">
+                {/* <div className="">
                     <ExploreCTA />
-                </div>
+                </div> */}
             </div>
             <div className="flex flex-wrap gap-4 p-4 items-center justify-center">
                 <BentoGrid1/>
