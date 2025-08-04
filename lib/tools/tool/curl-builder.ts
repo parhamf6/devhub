@@ -22,7 +22,7 @@ export type CurlBuilderResult = {
   error?: string;
 };
 
-export function buildCurlCommand(options: CurlBuilderOptions): CurlBuilderResult {
+function buildCurlCommand(options: CurlBuilderOptions): CurlBuilderResult {
   try {
     if (!options.url) {
       return { command: '', error: 'URL is required.' };

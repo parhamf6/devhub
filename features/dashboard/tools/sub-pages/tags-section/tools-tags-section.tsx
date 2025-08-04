@@ -1,66 +1,45 @@
 'use client'
 
-import { useSearchParams, useRouter } from 'next/navigation'
-import { useMemo, useState , useEffect } from 'react'
+import { useEffect, useMemo, useState, Suspense } from 'react'
 import { tools } from '@/lib/tools/toolDate'
-import { ToolCard } from '@/components/tool-card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
+import TagsToolList from './with-search-params'
 
 export default function ToolsTagsPageSection() {
-    const [favorites , setFavorites] = useState<string[]>([])
-      useEffect(() => {
-        const stored = localStorage.getItem("devhub-favorites")
-        if (stored) setFavorites(JSON.parse(stored))
-      }, [])
-      const favoriteTools = tools.filter((tool) => favorites.includes(tool.slug))
-      const toolsToDisplay = favoriteTools.length > 0 ? favoriteTools : tools
-      useEffect(() => {
-        const stored = localStorage.getItem("devhub-favorites");
-        if (stored) setFavorites(JSON.parse(stored));
-      }, []);
-          
-      const toggleFavorite = (slug: string) => {
-        const updated = favorites.includes(slug)
-          ? favorites.filter((s) => s !== slug)
-          : [...favorites, slug];
-          
-      setFavorites(updated);
-      localStorage.setItem("devhub-favorites", JSON.stringify(updated));
-      };
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const tagParam = searchParams.get('tag')
-  const [search, setSearch] = useState("")
+  const [favorites, setFavorites] = useState<string[]>([])
+  const [search, setSearch] = useState('')
 
-  // Get all unique tags
+  useEffect(() => {
+    const stored = localStorage.getItem('devhub-favorites')
+    if (stored) setFavorites(JSON.parse(stored))
+  }, [])
+
+  const toggleFavorite = (slug: string) => {
+    const updated = favorites.includes(slug)
+      ? favorites.filter((s) => s !== slug)
+      : [...favorites, slug]
+    setFavorites(updated)
+    localStorage.setItem('devhub-favorites', JSON.stringify(updated))
+  }
+
   const tags = useMemo(() => {
-    const tagSet = new Set(tools.flatMap(tool => tool.tags || []))
+    const tagSet = new Set(tools.flatMap((tool) => tool.tags || []))
     return Array.from(tagSet).sort((a, b) => a.localeCompare(b))
   }, [])
 
-  // Filter tools by selected tag and search
-  const filteredTools = useMemo(() => {
-    return tools.filter(tool => {
-      const matchTag = tagParam ? tool.tags?.includes(tagParam) : false
-      const term = search.toLowerCase()
-      const matchSearch =
-        tool.name.toLowerCase().includes(term) ||
-        tool.slug.toLowerCase().includes(term) ||
-        tool.category.toLowerCase().includes(term) ||
-        tool.description.toLowerCase().includes(term) ||
-        tool.tags?.some(tag => tag.toLowerCase().includes(term))
-      return matchTag && matchSearch
-    })
-  }, [tagParam, search])
-
   const handleTagClick = (tag: string) => {
-    router.push(`?tag=${encodeURIComponent(tag)}`)
+    const url = new URL(window.location.href)
+    url.searchParams.set('tag', tag)
+    window.history.pushState({}, '', url)
+    window.dispatchEvent(new Event('popstate'))
   }
 
   const clearTagFilter = () => {
-    router.push(`/dashboard/tools/tags`) // change path if needed
+    const url = new URL(window.location.href)
+    url.searchParams.delete('tag')
+    window.history.pushState({}, '', url)
+    window.dispatchEvent(new Event('popstate'))
   }
 
   return (
@@ -76,44 +55,34 @@ export default function ToolsTagsPageSection() {
         />
       </div>
 
-      {/* Tags filter */}
+      {/* Tags */}
       <div className="flex flex-wrap gap-2 pt-2">
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <Button
             key={tag}
-            variant={tagParam === tag ? 'default' : 'outline'}
+            variant="outline"
             onClick={() => handleTagClick(tag)}
           >
             #{tag}
           </Button>
         ))}
-        {tagParam && (
-          <Button variant="ghost" onClick={clearTagFilter} className="ml-2">
-            Clear Tag
-          </Button>
-        )}
+        <Button
+          variant="ghost"
+          onClick={clearTagFilter}
+          className="ml-2"
+        >
+          Clear Tag
+        </Button>
       </div>
 
-      {/* Tool cards */}
-      <div className="pt-6">
-        {tagParam ? (
-          filteredTools.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredTools.map((tool) => (
-                <motion.div key={tool.slug} whileHover={{ scale: 1.03 }}>
-                    <ToolCard {...tool}
-                    withFavoriteToggle 
-                    onToggleFavorite={() => toggleFavorite(tool.slug)}/>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-muted-foreground text-center pt-10">No tools found.</p>
-          )
-        ) : (
-          <p className="text-center pt-10 text-muted-foreground">Select a tag to get started.</p>
-        )}
-      </div>
+      {/* Tool Cards */}
+      <Suspense fallback={<p className="pt-10 text-center">Loading tools...</p>}>
+        <TagsToolList
+          favorites={favorites}
+          search={search}
+          toggleFavorite={toggleFavorite}
+        />
+      </Suspense>
     </div>
   )
 }
