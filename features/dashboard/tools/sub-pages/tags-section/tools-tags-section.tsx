@@ -5,10 +5,13 @@ import { tools } from '@/lib/tools/toolDate'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import TagsToolList from './with-search-params'
+import { Collapsible,CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { ChevronDown , ChevronUp } from 'lucide-react'
 
 export default function ToolsTagsPageSection() {
   const [favorites, setFavorites] = useState<string[]>([])
   const [search, setSearch] = useState('')
+  const [collapsed , setCollapsed] = useState(false)
 
   useEffect(() => {
     const stored = localStorage.getItem('devhub-favorites')
@@ -56,24 +59,41 @@ export default function ToolsTagsPageSection() {
       </div>
 
       {/* Tags */}
-      <div className="flex flex-wrap gap-2 pt-2">
-        {tags.map((tag) => (
-          <Button
-            key={tag}
-            variant="outline"
-            onClick={() => handleTagClick(tag)}
-          >
-            #{tag}
-          </Button>
-        ))}
-        <Button
-          variant="ghost"
-          onClick={clearTagFilter}
-          className="ml-2"
-        >
-          Clear Tag
-        </Button>
-      </div>
+      <Collapsible className='border p-4 rounded-2xl border-border'>
+        <CollapsibleTrigger onClick={() => setCollapsed(!collapsed)}>
+          <div className='flex items-center gap-2'>
+            <div>
+                <h1>
+                See All <span className='text-violet'> Tags</span>
+              </h1>
+            </div>
+            <div>
+              {collapsed ? <ChevronDown /> : <ChevronUp />}
+              {/* <span className="sr-only">Toggle</span> */}
+            </div>
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {tags.map((tag) => (
+              <Button
+                key={tag}
+                variant="outline"
+                onClick={() => handleTagClick(tag)}
+              >
+                #{tag}
+              </Button>
+            ))}
+            <Button
+              variant="ghost"
+              onClick={clearTagFilter}
+              className="ml-2"
+            >
+              Clear Tag
+            </Button>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
 
       {/* Tool Cards */}
       <Suspense fallback={<p className="pt-10 text-center">Loading tools...</p>}>

@@ -40,7 +40,7 @@ import { categories } from "@/lib/tools/categories"
 // This is sample data.
 const items = [
     { title: 'Home', url: '/', icon: Home },
-    { title: 'Dashboard', url: '/dashboard', icon: Inbox },
+    { title: 'My Workspace', url: '/dashboard', icon: Inbox },
     // { title: 'Tools', url: '/dashboard/tools', icon: ToolCase },
 ]
 const data = {
@@ -51,7 +51,7 @@ const data = {
     },
     navMain: [
         {
-        title: "Tools",
+        title: "Tool Library",
         url: "/dashboard/tools",
         icon: SquareTerminal,
         isActive: true,

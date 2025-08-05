@@ -117,8 +117,9 @@ export default function LandingPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
+                    
                 >
-                    <FeatureSection />
+                    <FeatureSection  />
                 </motion.div>
                 <AnimatedWave />
                 

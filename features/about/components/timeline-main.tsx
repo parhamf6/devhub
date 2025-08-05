@@ -5,7 +5,7 @@ import { Timeline } from "./timeline-component";
 export function TimelineDemo() {
     const data = [
         {
-        title: "July 2025",
+        title: "15 July 2025",
         content: (
             <div>
             <p className=" text-xs md:text-sm font-normal mb-8">
@@ -18,7 +18,7 @@ export function TimelineDemo() {
         ),
         },
         {
-        title: "August 2025",
+        title: "4 August 2025",
         content: (
             <div>
             <p className=" text-xs md:text-sm font-normal mb-8">

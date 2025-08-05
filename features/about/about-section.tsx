@@ -44,7 +44,7 @@ export default function AboutSection() {
                     <div className="text-6xl font-bold text-center">
                         {/* <h1>About Us</h1> */}
                         <BlurText
-                        text="Aboutn Us"
+                        text="About Us"
                         delay={150}
                         animateBy="words"
                         direction="top"
@@ -76,8 +76,8 @@ export default function AboutSection() {
                     className="flex flex-wrap items-center justify-center gap-8">
                     <div className="flex flex-col gap-6 border border-border rounded-[32px]  sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
-                        <Rocket size={42}/>
-                        <h1 className="text-4xl text-foreground">Our Mission</h1>
+                        <Rocket size={42} className="text-teal"/>
+                        <h1 className="text-4xl text-teal">Our Mission</h1>
                         <p className="text-muted-foreground">
                             At DevHub, our mission is to empower developers, learners, and makers by building a centralized hub of high-quality tools and community-driven resources.
                             Whether you're writing your first line of code or launching your own project.
@@ -85,8 +85,8 @@ export default function AboutSection() {
                     </div>
                     <div className="flex flex-col gap-6 border border-border rounded-[32px]  sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
-                        <Target size={42}/>
-                        <h1 className="text-4xl text-foreground">Our Vision</h1>
+                        <Target size={42} className="text-coral"/>
+                        <h1 className="text-4xl text-coral">Our Vision</h1>
                         <p className="text-muted-foreground"> 
                             Our goal is to break down complexity and help developers stay focused.
                             In the long run, DevHub aims to become an open ecosystem of tools, guides, and innovations that make software development smarter and more accessible to everyone around the world.

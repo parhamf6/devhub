@@ -17,12 +17,12 @@ export default function ExploreMoreSection() {
                     />
                 </div>
                 <motion.a
-                        href="#FAQ"
+                        href="/dashboard"
                         whileHover={{ x: 4 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                         className=" flex items-center border-2 gap-2 rounded-2xl  px-6 py-3 text-lg font-semibold text-secondary bg-primary   shadow-md transition-colors"
                     >
-                        Learn More
+                        Explore Tools
                         <ChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
                 </motion.a>
             </div>

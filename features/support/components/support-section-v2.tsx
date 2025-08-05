@@ -195,9 +195,9 @@ export default function SupportPage2() {
                 className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 w-full max-w-4xl"
             >
                 {[
-                { icon: Users, value: "2.5k+", label: "Active Contributors" },
-                { icon: Star, value: "15k+", label: "GitHub Stars" },
-                { icon: Heart, value: "50+", label: "Sponsors" }
+                { icon: Users, value: "1k+", label: "Active Users" },
+                { icon: Star, value: "10+", label: "GitHub Stars" },
+                { icon: Heart, value: "00+", label: "Sponsors" }
                 ].map((stat, index) => (
                 <motion.div
                     key={index}

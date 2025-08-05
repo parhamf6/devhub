@@ -153,7 +153,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
 
-            <div>
+            <div >
                 <Button variant="ghost" size="icon" className="relative">
                     <Github />
                 </Button>

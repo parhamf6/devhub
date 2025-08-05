@@ -153,15 +153,16 @@ const GetStartedButton: React.FC<Props> = ({ onClick }) => {
                 </motion.div>
 
                 {/* Text with subtle bounce */}
-                <motion.span
+                <motion.a
                     animate={{
                         y: isHovered ? -1 : 0,
                     }}
                     transition={{ duration: 0.2 }}
+                    href='/dashboard'
                     className="relative z-10"
                 >
                     Get Started
-                </motion.span>
+                </motion.a>
 
                 {/* Arrow with gentle bob animation */}
                 <motion.div

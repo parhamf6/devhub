@@ -5,7 +5,7 @@ import FAQCTA from "./components/faq-button";
 
 export default function FeatureSection() {
     return(
-        <div className="flex gap-4 p-4 m-2 flex-col"  id="features">
+        <div className="flex gap-4 p-4 m-2 flex-col" id="features">
             <div className="flex flex-wrap gap-8 items-center justify-center p-4 mt-4">
                 <div className="flex flex-wrap gap-4 items-center justify-center text-center text-coral">
                     <AnimatedText

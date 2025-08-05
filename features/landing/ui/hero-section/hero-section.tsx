@@ -9,9 +9,9 @@ export default function HeroSection() {
             {/* <div>
                 <BeamsBackground />
             </div> */}
-            <div className="flex flex-col gap-2 p-4  items-center justify-center ">
+            <div className="flex flex-col gap-2 p-4 mt-4  items-center justify-center ">
                 <IntroSide />
-                <FeaturesSide />
+                {/* <FeaturesSide /> */}
             </div>
         </div>
         
