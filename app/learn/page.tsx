@@ -2,6 +2,14 @@
 import UnderDevelopmentPage from "@/components/global/under-development"
 import Navbar from "@/components/navbar"
 import { BackgroundPaths } from "@/components/hero-wave"
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Learn – DevHub",
+    description: "Learn Docs of DevHub",
+    robots: { index: true, follow: true }, // Optional: don't index
+}
 export default async function LearnPage() {
 
   return (

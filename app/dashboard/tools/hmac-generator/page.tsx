@@ -255,7 +255,7 @@ export default function HMACGeneratorPage() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-wrap md:gap-8 sm:gap-4">
                   <div className="space-y-2">
                     <Label>Algorithm</Label>
                     <Select value={algorithm} onValueChange={setAlgorithm}>
@@ -296,7 +296,7 @@ export default function HMACGeneratorPage() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-wrap md:gap-8 sm:gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="timestamp">Timestamp (Optional)</Label>
                     <Input
@@ -304,12 +304,13 @@ export default function HMACGeneratorPage() {
                       value={timestamp}
                       onChange={(e) => setTimestamp(e.target.value)}
                       placeholder="ISO timestamp"
+                      className='pr-16'
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="nonce">Nonce (Optional)</Label>
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2">
                       <Input
                         id="nonce"
                         value={nonce}

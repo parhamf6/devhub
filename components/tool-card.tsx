@@ -115,9 +115,8 @@ export const ToolCard: React.FC<ToolCardProps> = ({
       >
         <div className="flex flex-col justify-between p-5 bg-card border border-border rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 w-[320px] h-[300px]">
           {/* Header */}
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex justify-between items-start  h-full">
             <div className="flex items-start gap-3">
-              
               <div>
                 <h2 className="text-lg font-bold leading-tight">{name}</h2>
                 <div className="flex items-center gap-2 mt-1">
@@ -142,7 +141,64 @@ export const ToolCard: React.FC<ToolCardProps> = ({
               </div>
             </div>
             <div className="flex gap-2">
-              <>
+              {withFavoriteToggle && (
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`p-1 rounded-full transition-colors z-10 ${
+                    isFavorite
+                      ? "text-yellow-500 bg-yellow-500/10"
+                      : "text-muted-foreground hover:text-yellow-500 hover:bg-yellow-500/10"
+                  }`}
+                  onClick={toggleFavorite}
+                  title={
+                    isFavorite
+                      ? "Remove from favorites"
+                      : "Add to favorites"
+                  }
+                >
+                  <Star
+                    className="w-5 h-5"
+                    fill={isFavorite ? "currentColor" : "none"}
+                  />
+                </motion.button>
+              )}
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="text-sm text-muted-foreground  h-full mt-2 line-clamp-3">
+            <p>
+              {description}
+            </p>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1 h-full">
+            {tags.slice(0, 3).map((tag) => (
+              <Link href={`/dashboard/tools/tags?tag=${tag}`} key={tag}>
+                <Badge
+                  variant="secondary"
+                  className="text-xs hover:bg-accent hover:text-accent-foreground transition-colors"
+                >
+                  #{tag}
+                </Badge>
+              </Link>
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-auto flex gap-2">
+            <Link
+              href={`/dashboard/tools/${slug}`}
+              onMouseEnter={() => router.prefetch(`/dashboard/tools/${slug}`)}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/90 transition-colors"
+            >
+              Use <ChevronRight className="w-4 h-4" />
+            </Link>
+
+            {/* Info Button with conditional behavior */}
+            <>
                 {/* Mobile Dialog */}
                 <Dialog open={isInfoDialogOpen} onOpenChange={setIsInfoDialogOpen}>
                   <DialogTrigger asChild>
@@ -177,73 +233,6 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                   </Tooltip>
                 </div>
             </>
-              {withFavoriteToggle && (
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`p-1 rounded-full transition-colors z-10 ${
-                    isFavorite
-                      ? "text-yellow-500 bg-yellow-500/10"
-                      : "text-muted-foreground hover:text-yellow-500 hover:bg-yellow-500/10"
-                  }`}
-                  onClick={toggleFavorite}
-                  title={
-                    isFavorite
-                      ? "Remove from favorites"
-                      : "Add to favorites"
-                  }
-                >
-                  <Star
-                    className="w-5 h-5"
-                    fill={isFavorite ? "currentColor" : "none"}
-                  />
-                </motion.button>
-              )}
-              
-            </div>
-          </div>
-
-          {/* Description */}
-          <div className="text-sm text-muted-foreground mb-4 mt-2 line-clamp-3">
-            <p>
-              {description}
-            </p>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1 mb-4">
-            {tags.slice(0, 3).map((tag) => (
-              <Link href={`/dashboard/tools/tags?tag=${tag}`} key={tag}>
-                <Badge
-                  variant="secondary"
-                  className="text-xs hover:bg-accent hover:text-accent-foreground transition-colors"
-                >
-                  #{tag}
-                </Badge>
-              </Link>
-            ))}
-            {tags.length > 3 && (
-              <Badge
-                variant="outline"
-                className="text-xs text-muted-foreground"
-              >
-                +{tags.length - 3}
-              </Badge>
-            )}
-          </div>
-
-          {/* Buttons */}
-          <div className="mt-auto flex gap-2">
-            <Link
-              href={`/dashboard/tools/${slug}`}
-              onMouseEnter={() => router.prefetch(`/dashboard/tools/${slug}`)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary rounded-xl hover:bg-primary/90 transition-colors"
-            >
-              Use <ChevronRight className="w-4 h-4" />
-            </Link>
-
-            {/* Info Button with conditional behavior */}
-
           </div>
         </div>
       </motion.div>

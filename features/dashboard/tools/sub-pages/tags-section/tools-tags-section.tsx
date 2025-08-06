@@ -59,9 +59,9 @@ export default function ToolsTagsPageSection() {
       </div>
 
       {/* Tags */}
-      <Collapsible className='border p-4 rounded-2xl border-border'>
+      <Collapsible className=''>
         <CollapsibleTrigger onClick={() => setCollapsed(!collapsed)}>
-          <div className='flex items-center gap-2'>
+          <div className='flex  items-center gap-2 border p-4 rounded-2xl border-border'>
             <div>
                 <h1>
                 See All <span className='text-violet'> Tags</span>

@@ -20,8 +20,7 @@ import { motion } from "framer-motion"
 import GithubButton from "./ui/github-icon"
 import { UserIcon } from "./animated-icons/user-icon"
 import { GithubIcon } from "./animated-icons/github-icon"
-
-
+import { GitHubStarButton } from "./github-btn"
 const navLinks = [
     { name: "Home", href: "/", icon: Home },
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
@@ -115,18 +114,22 @@ export default function Navbar() {
                 {/* Theme Toggle */}
                 <ThemeToggle />
             
-                <div>
-                    <Button variant="ghost" size="icon" className="relative">
-                        <GithubIcon />
-                    </Button>
+                {/* <div>
+                    <a href="https://github.com/parhamf6/devhub">
+                        <Button variant="ghost" size="icon" className="relative">
+                            <GithubIcon />
+                        </Button>
+                    </a>
+                </div> */}
+                <div className="flex items-center gap-4">
+                    <GitHubStarButton repoUrl="https://github.com/parhamf6/devhub" count={5} />
                 </div>
 
                 {/* Profile Dropdown */}
-                    <DropdownMenu>
+                    {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon" className="relative">
                             <div className="w-8 h-8 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
-                            {/* <User className=" w-4 h-4" /> */}
                             <UserIcon />
                             </div>
                         </Button>
@@ -145,7 +148,7 @@ export default function Navbar() {
                             </Link>
                         </DropdownMenuItem>
                         </DropdownMenuContent>
-                    </DropdownMenu>
+                    </DropdownMenu> */}
                 </div>
             </div>
 
@@ -153,14 +156,12 @@ export default function Navbar() {
             <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
 
-            <div >
-                <Button variant="ghost" size="icon" className="relative">
-                    <Github />
-                </Button>
+            <div className="flex items-center gap-4">
+                <GitHubStarButton repoUrl="https://github.com/parhamf6/devhub" count={5} />
             </div>
             
             {/* Mobile Profile Dropdown */}
-            <DropdownMenu>
+            {/* <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative">
                     <div className="w-8 h-8  rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
@@ -182,7 +183,7 @@ export default function Navbar() {
                     </Link>
                 </DropdownMenuItem>
                 </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
 
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
@@ -253,7 +254,7 @@ export default function Navbar() {
 
                     {/* Footer */}
                     <div className="p-6 border-t">
-                    <div className="flex items-center justify-center gap-4">
+                    {/* <div className="flex items-center justify-center gap-4">
                         <Link
                         href="/login"
                         className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground hover:bg-accent rounded-lg transition-colors duration-200"
@@ -270,7 +271,7 @@ export default function Navbar() {
                         <UserPlus className="w-4 h-4" />
                         Sign Up
                         </Link>
-                    </div>
+                    </div> */}
                     </div>
                 </div>
                 </SheetContent>

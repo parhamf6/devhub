@@ -74,7 +74,8 @@ export default function AboutSection() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                     className="flex flex-wrap items-center justify-center gap-8">
-                    <div className="flex flex-col gap-6 border border-border rounded-[32px]  sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
+                    <div className="flex flex-col gap-6 border border-border rounded-[32px] 
+                    mr-2 ml-2 sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
                         <Rocket size={42} className="text-teal"/>
                         <h1 className="text-4xl text-teal">Our Mission</h1>
@@ -83,7 +84,8 @@ export default function AboutSection() {
                             Whether you're writing your first line of code or launching your own project.
                             </p>
                     </div>
-                    <div className="flex flex-col gap-6 border border-border rounded-[32px]  sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
+                    <div className="flex flex-col gap-6 border border-border rounded-[32px] 
+                    mr-2 ml-2 sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
                         <Target size={42} className="text-coral"/>
                         <h1 className="text-4xl text-coral">Our Vision</h1>

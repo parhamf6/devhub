@@ -108,7 +108,7 @@ export default function NotFound() {
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-4 max-w-2xl mx-auto">
               <Card className="p-4 hover:bg-accent/50 transition-colors cursor-pointer group">
-                <Link href="/docs" className="block">
+                <Link href="/about" className="block">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Code2 className="w-5 h-5 text-primary" />

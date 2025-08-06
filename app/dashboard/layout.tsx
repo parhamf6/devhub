@@ -2,6 +2,14 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import DashboardNavbar from "@/features/dashboard/components/dashbaord-navbar"
 import { AppSidebarV3 } from "@/features/dashboard/components/sidebarV2/app-sidebarV3"
 import { Toaster } from "sonner"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Dashboard | Devhub",
+  description: "The Dashbaord of Devhub.",
+  robots: { index: true, follow: true },
+}
+
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <SidebarProvider>

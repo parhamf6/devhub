@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Settings, Menu } from "lucide-react"
 import Link from "next/link"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+import { GitHubStarButton } from "@/components/github-btn"
+import { GithubIcon } from "@/components/animated-icons/github-icon"
 export default function DashboardNavbar() {
     // const isMobile = useIsMobile()
 
@@ -21,7 +23,11 @@ export default function DashboardNavbar() {
         <div className="flex items-center gap-2">
             {/* Theme toggle */}
             <ThemeToggle />
-
+            <div >
+                <Button variant="ghost" size="icon" className="relative">
+                    <GithubIcon />
+                </Button>
+            </div>
             {/* Settings button (could open a modal or dropdown later) */}
             {/* <Button variant="ghost" size="icon">
             <Settings className="h-5 w-5" />

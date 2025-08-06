@@ -376,3 +376,42 @@ pre::-webkit-scrollbar-thumb:hover {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* Add this to your globals.css or main CSS file */
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Shine animation - runs automatically every 3 seconds */
+.animate-shine {
+  animation: shine 1.5s ease-in-out infinite;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+/* Shimmer animation - only on hover */
+.animate-shimmer {
+  animation: shimmer 0.6s ease-out;
+}
