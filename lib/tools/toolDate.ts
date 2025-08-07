@@ -94,6 +94,15 @@ export const tools: ToolCardProps[] = [
     version: "1.0.0",
     tags: ["json", "csv", "data"],
   },
+  {
+    name: "JSON ↔ XML Converter",
+    slug: "json-xml-converter",
+    description: "Advanced JSON ⇄ XML converter with validation, formatting, and history",
+    info: "Transform JSON arrays to XML and vice versa. Supports nested arrays and custom delimiters.",
+    category: "Converter",
+    version: "1.0.0",
+    tags: ["JSON", "XML", "Converter", "Formatter", "Validator"],
+  },
 
   // === TEXT & DATA ===
   {

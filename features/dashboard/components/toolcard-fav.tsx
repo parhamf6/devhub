@@ -185,14 +185,6 @@ export const ToolCardFav: React.FC<ToolCardProps> = ({
                 </Badge>
               </Link>
             ))}
-            {tags.length > 3 && (
-              <Badge
-                variant="outline"
-                className="text-xs text-muted-foreground"
-              >
-                +{tags.length - 3}
-              </Badge>
-            )}
           </div>
 
           {/* Buttons */}
