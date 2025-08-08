@@ -7,7 +7,7 @@ export const tools: ToolCardProps[] = [
     description: "Generate random strings for passwords, API keys, and security tokens",
     info: "Quickly create secure tokens for auth, API keys, or password reset flows. Customizable length and character sets.",
     category: "Security",
-    version: "0.0.1",
+    version: "1.0.0",
     tags: ["generator", "api-key", "password"],
   },
   {
@@ -102,6 +102,15 @@ export const tools: ToolCardProps[] = [
     category: "Converter",
     version: "1.0.0",
     tags: ["JSON", "XML", "Converter", "Formatter", "Validator"],
+  },
+  {
+    name: "JSON ↔ TOML Converter",
+    slug: "json-toml-converter",
+    description: "Advanced JSON ⇄ TOML converter with validation, formatting, and history",
+    info: "Transform JSON arrays to Toml and vice versa. Supports nested arrays and custom delimiters.",
+    category: "Converter",
+    version: "1.0.0",
+    tags: ["JSON", "TOML", "Converter", "Formatter", "Validator"],
   },
 
   // === TEXT & DATA ===
