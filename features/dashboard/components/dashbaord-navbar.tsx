@@ -14,10 +14,12 @@ export default function DashboardNavbar() {
     return (
         <header className="flex items-center justify-between px-4 py-2 border-b bg-background shadow-sm h-[56px]">
         {/* Left: Logo or Title */}
-        <SidebarTrigger />
-        <Link href="/" className="text-primary-500 text-xl font-bold hover:text-accent transition-colors duration-300">
-            DH
-        </Link>
+        <div className="flex items-center gap-4">
+            <SidebarTrigger />
+            <Link href="/" className="text-primary-500 text-xl font-bold hover:text-accent transition-colors duration-300">
+                DH
+            </Link>
+        </div>
         
         {/* Right: Actions */}
         <div className="flex items-center gap-2">

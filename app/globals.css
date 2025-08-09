@@ -62,7 +62,7 @@
   --info-muted: oklch(0.95 0.08 220);
   
   /* Accent Colors */
-  --coral: oklch(0.68 0.18 35);
+  --coral: #f26644;
   --coral-foreground: oklch(0.98 0.02 35);
   --coral-muted: oklch(0.94 0.08 35);
   
@@ -414,4 +414,35 @@ html {
 /* Shimmer animation - only on hover */
 .animate-shimmer {
   animation: shimmer 0.6s ease-out;
+}
+
+
+
+#mission-card{
+  background-image: url('/4.jpg'); /* Path to your noise texture */
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+}
+
+html.light #mission-card{
+  background-image: url('/6.jpg'); /* Path to your noise texture */
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+}
+
+
+#vision-card{
+  background-image: url('/21.jpg'); /* Path to your noise texture */
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+}
+
+html.light #vision-card{
+  background-image: url('/20.jpg'); /* Path to your noise texture */
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
 }

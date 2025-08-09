@@ -7,6 +7,7 @@ import { motion , Variants } from "framer-motion";
 import BlurText from "../../components/text-animation/text-animation"
 import { FooterV2 } from "@/components/global/footer-v2"
 
+
 export default function AboutSection() {
     const fadeUpVariant: Variants = {
         hidden: { 
@@ -74,21 +75,21 @@ export default function AboutSection() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                     className="flex flex-wrap items-center justify-center gap-8">
-                    <div className="flex flex-col gap-6 border border-border rounded-[32px] 
+                    <div id="mission-card"className="flex flex-col gap-6 border border-border rounded-[32px] 
                     mr-2 ml-2 sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
                         <Rocket size={42} className="text-teal"/>
-                        <h1 className="text-4xl text-teal">Our Mission</h1>
+                        <h1 className="text-4xl">Our Mission</h1>
                         <p className="text-muted-foreground">
                             At DevHub, our mission is to empower developers, learners, and makers by building a centralized hub of high-quality tools and community-driven resources.
                             Whether you're writing your first line of code or launching your own project.
                             </p>
                     </div>
-                    <div className="flex flex-col gap-6 border border-border rounded-[32px] 
+                    <div id="vision-card" className="flex flex-col gap-6 border border-border rounded-[32px] 
                     mr-2 ml-2 sm:overflow-y-scroll md:overflow-y-hidden p-4 w-[420px] h-[320px]
                         hover:border-secondary transition-colors duration-300 bg-card">
                         <Target size={42} className="text-coral"/>
-                        <h1 className="text-4xl text-coral">Our Vision</h1>
+                        <h1 className="text-4xl">Our Vision</h1>
                         <p className="text-muted-foreground"> 
                             Our goal is to break down complexity and help developers stay focused.
                             In the long run, DevHub aims to become an open ecosystem of tools, guides, and innovations that make software development smarter and more accessible to everyone around the world.

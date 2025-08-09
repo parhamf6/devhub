@@ -57,19 +57,25 @@ export function TimelineDemo() {
                 ✅ New JWT Encoder/Decoder tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Built "Under Development" page & enhanced Navbar tooltips
+                ✅ Added URL Encoder/Decoder tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Improved ToolCard prefetch & "Show Favorite" contrast
+                ✅ New JSON ↔ TOML Converter tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                ✅ Tweaked layouts on Token Generator & JSON/YAML pages
+                ✅ New JSON ↔ CSV Converter tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                🐛 Fixed build issues with useSearchParams & temporarily disabled ESLint/type checks
+                ✅ New JSON ↔ XML Converter tool
                 </div>
                 <div className="flex gap-2 items-center text-xs md:text-sm">
-                🐛 Integrated Poppint font using Next Font
+                ✅ Build UUID Generator tool
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ New HMAC Generatortool
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Introduced Password Strength Checker tool
                 </div>
             </div>
             </div>

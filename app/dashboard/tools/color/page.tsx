@@ -596,7 +596,7 @@ export default function ColorPickerPage() {
             </CardHeader>
             <CardContent className="p-2 md:p-4">
               <Tabs defaultValue="hex" className="w-full">
-                <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full">
+                <TabsList className=" w-full">
                   {COLOR_FORMATS.map(format => (
                     <TabsTrigger key={format.id} value={format.id} className="text-xs">
                       {format.name}
