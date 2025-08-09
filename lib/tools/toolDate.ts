@@ -57,6 +57,14 @@ export const tools: ToolCardProps[] = [
     version: "1.0.0",
     tags: ["identifier", "unique-id"],
   },
+  {
+    name: 'ULID Generator',
+    slug: 'ulid-generator',
+    description: 'Generate ULIDs with time-based sorting and advanced options.',
+    info:"ULID is a 26-character, universally unique, lexicographically sortable identifier.",
+    category: 'Generator',
+    tags: ['ulid', 'identifier', 'sortable', 'time-based'],
+  },
   // {
   //   name: "Lorem Ipsum Generator",
   //   slug: "lorem-ipsum-generator",
