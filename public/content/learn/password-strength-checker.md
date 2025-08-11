@@ -144,10 +144,8 @@ Higher entropy = Stronger password
 
 ## 🔗 Related Tools
 
-* [Password Generator](/tools/password-generator)
-* [Hash Generator](/tools/hash-generator)
-* [Token Generator](/tools/token-generator)
-* [Encryption Tool](/tools/encryption)
+* [Hash Generator](/dashboard/tools/hash-generator)
+* [Token Generator](/dashboard/tools/token-generator)
 
 ---
 

@@ -263,10 +263,10 @@ Solution: Ensure UTF-8 encoding throughout the process
 
 ## 🔗 Related Tools
 
-* [URL Encoder/Decoder](https://devtoolcafe.com/tools/url-encoder)
-* [JWT Decoder](https://devtoolcafe.com/tools/jwt-decoder)
-* [Hash Generator](https://devtoolcafe.com/tools/hash-generator)
-* [QR Code Generator](https://devtoolcafe.com/tools/qr-code)
+* [URL Encoder/Decoder](/dashboard/tools/url-encoder-decoder)
+* [JWT Decoder](/dashboard/tools/jwt)
+* [Hash Generator](/dashboard/tools/hash-generator)
+* [QR Code Generator](/dashboard/tools/qr-code-generator)
 
 ---
 

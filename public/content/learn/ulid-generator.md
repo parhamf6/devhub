@@ -162,11 +162,11 @@ for i in {1..5}; do ulid; done
 * For cryptographic security, use dedicated cryptographic libraries
 ---
 ## 🔗 Related Tools
-* [UUID Generator](https://devtoolcafe.com/tools/uuid-generator)
-* [Timestamp Generator](https://devtoolcafe.com/tools/timestamp-generator)
-* [Hash Generator](https://devtoolcafe.com/tools/hash-generator)
-* [Base32 Converter](https://devtoolcafe.com/tools/base32-converter)
-* [Random String Generator](https://devtoolcafe.com/tools/random-string)
+* [UUID Generator](/dashboard/tools/uuid-generator)
+* [Timestamp Generator](/dashboard/tools/timestamp-generator)
+* [Hash Generator](/dashboard/tools/hash-generator)
+* [Base32 Converter](/dashboard/tools/base32)
+* [Token Generator](/dashboard/tools/token-generator)
 ---
 ## 📚 Learn More
 * [ULID Specification](https://github.com/ulid/spec)

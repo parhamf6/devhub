@@ -164,10 +164,9 @@ LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 32; echo
 
 ## 🔗 Related Tools
 
-* [Password Generator](https://devtoolcafe.com/tools/password-generator)
-* [UUID Generator](https://devtoolcafe.com/tools/uuid-generator)
-* [JWT Decoder](https://devtoolcafe.com/tools/jwt-decoder)
-* [Base64 Encoder/Decoder](https://devtoolcafe.com/tools/base64)
+* [UUID Generator](/dashboard/tools/uuid-generator)
+* [JWT Encoder Decoder](/dashboard/tools/jwt)
+* [Base64 Encoder/Decoder](/dashboard/tools/base64)
 
 ---
 

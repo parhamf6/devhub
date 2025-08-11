@@ -159,10 +159,10 @@ Solution: Use encodeURIComponent()
 
 ## 🔗 Related Tools
 
-* [Base64 Encoder](/tools/base64)
-* [JSON Formatter](/tools/json-formatter)
-* [HTML Encoder](/tools/html-encoder)
-* [JWT Debugger](/tools/jwt)
+* [Base64 Encoder](/dashboard/tools/base64)
+* [JSON Formatter](/dashboard/tools/json-formatter)
+* [HTML Encoder](/dashboard/tools/html-encoder)
+* [JWT Debugger](/dashboard/tools/jwt)
 
 ---
 

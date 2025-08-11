@@ -235,10 +235,9 @@ Solution: Use the "Format" button to validate JSON
 
 ## 🔗 Related Tools
 
-* [Postman Alternative](https://devtoolcafe.com/tools/postman)
-* [JSON Formatter](https://devtoolcafe.com/tools/json-formatter)
-* [URL Encoder](https://devtoolcafe.com/tools/url-encoder)
-* [JWT Debugger](https://devtoolcafe.com/tools/jwt)
+* [JSON Formatter](/dashboard/tools/json-formatter)
+* [URL Encoder](/dashboard/tools/url-encoder-decoder)
+* [JWT Debugger](/dashboard/tools/jwt-debugger)
 
 ---
 

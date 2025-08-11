@@ -46,6 +46,14 @@ export const tools: ToolCardProps[] = [
     version: "1.0.0",
     tags: ["signature", "authentication", "cryptography"],
   },
+  {
+    name: "Bcrypt Generator",
+    slug: "bcrypt-generator",
+    description: "Advanced bcrypt password hashing and verification tool with customizable rounds.",
+    info:"This tool generates and verifies password hashes using the Bcrypt algorithm, an industry standard for secure password storage.",
+    category: "Security",
+    tags: ["Security", "Password", "Hashing", "Bcrypt", "Authentication"]
+  },
 
   // === GENERATOR ===
   {

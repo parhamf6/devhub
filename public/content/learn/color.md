@@ -191,11 +191,9 @@ def get_analogous_colors(hex_color):
 * Consider using tools like our [Contrast Checker](https://devtoolcafe.com/tools/contrast-checker) to verify accessibility
 ---
 ## 🔗 Related Tools
-* [Contrast Checker](https://devtoolcafe.com/tools/contrast-checker)
-* [Gradient Generator](https://devtoolcafe.com/tools/gradient-generator)
-* [CSS Filters Generator](https://devtoolcafe.com/tools/css-filters)
-* [Palette Generator](https://devtoolcafe.com/tools/palette-generator)
-* [Image Color Picker](https://devtoolcafe.com/tools/image-color-picker)
+* [Contrast Checker](/dashboard/tools/contrast-checker)
+* [Gradient Generator](/dashboard/tools/gradient-generator)
+* [Image Color Picker](/dashboard/tools/image-color-picker)
 ---
 ## 📚 Learn More
 * [Color Theory Basics](https://www.smashingmagazine.com/2022/05/color-theory-practical-guide-designers/)

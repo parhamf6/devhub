@@ -123,10 +123,10 @@ Generate secure Hash-based Message Authentication Codes (HMAC) for API authentic
 
 ## 🔗 Related Tools
 
-* [Hash Generator](/tools/hash-generator)
-* [JWT Generator](/tools/jwt)
-* [Base64 Encoder](/tools/base64)
-* [Token Generator](/tools/token-generator)
+* [Hash Generator](/dashboard/tools/hash-generator)
+* [JWT Encoder Decoder](/dashboard/tools/jwt)
+* [Base64 Encoder](/dashboard/tools/base64)
+* [Token Generator](/dashboard/tools/token-generator)
 
 ---
 

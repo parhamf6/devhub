@@ -77,6 +77,12 @@ export function TimelineDemo() {
                 <div className="flex gap-2 items-center text-xs md:text-sm">
                 ✅ Introduced Password Strength Checker tool
                 </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ Build ULID Generator tool
+                </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ New Bcrypt Generator tool
+                </div>
             </div>
             </div>
         ),

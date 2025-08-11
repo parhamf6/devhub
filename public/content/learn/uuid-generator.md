@@ -135,10 +135,10 @@ uuidgen -t        # v1 Time-based
 
 ## 🔗 Related Tools
 
-* [Token Generator](https://devtoolcafe.com/tools/token-generator)
-* [Hash Generator](https://devtoolcafe.com/tools/hash-generator)
-* [JWT Decoder](https://devtoolcafe.com/tools/jwt-decoder)
-* [Base64 Converter](https://devtoolcafe.com/tools/base64)
+* [Token Generator](/dashboard/tools/token-generator)
+* [Hash Generator](/dashboard/tools/hash-generator)
+* [JWT Encoder Decoder](/dashboard/tools/jwt)
+* [Base64 Converter](/dashboard/tools/base64)
 
 ---
 
