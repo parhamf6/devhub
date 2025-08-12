@@ -54,6 +54,14 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     tags: ["Security", "Password", "Hashing", "Bcrypt", "Authentication"]
   },
+  {
+    name: 'RSA Key Pair Generator',
+    slug: 'rsa-generator',
+    description: 'Generate secure RSA key pairs with customizable options and export formats',
+    info:"Generate a new random RSA private and public PEM certificate key pair for encryption and digital signatures",
+    category: 'Security',
+    tags: ['security', 'encryption', 'cryptography', 'devops'],
+  },
 
   // === GENERATOR ===
   {

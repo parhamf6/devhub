@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import { Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 const geistSans = Geist({
@@ -43,6 +44,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* <Navbar /> */}
           {children}
+          <SpeedInsights />
           <Analytics />
         </ThemeProvider>
       </body>
