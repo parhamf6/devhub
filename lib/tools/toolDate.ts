@@ -81,6 +81,15 @@ export const tools: ToolCardProps[] = [
     category: 'Generator',
     tags: ['ulid', 'identifier', 'sortable', 'time-based'],
   },
+  {
+    name: "Cron Expression Generator",
+    slug: "cron-expression-generator",
+    description: "Advanced cron expression builder with visual editor and next run times",
+    info: "Build, validate, and test cron expressions with a visual editor. See next run times and get human-readable descriptions.",
+    category: "Generator",
+    version: "1.0.0",
+    tags: ["cron", "scheduler", "automation", "devops"],
+  },
   // {
   //   name: "Lorem Ipsum Generator",
   //   slug: "lorem-ipsum-generator",
