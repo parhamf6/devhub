@@ -27,7 +27,9 @@ export default function DashboardNavbar() {
             <ThemeToggle />
             <div >
                 <Button variant="ghost" size="icon" className="relative">
-                    <GithubIcon />
+                    <a href="https://github.com/parhamf6/devhub">
+                        <GithubIcon />
+                    </a>
                 </Button>
             </div>
             {/* Settings button (could open a modal or dropdown later) */}

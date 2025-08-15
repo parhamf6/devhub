@@ -137,7 +137,7 @@ export default function LandingPage() {
                 
                 {/* Explore More Section - Slide in from right */}
                 <motion.div
-                    variants={slideInRightVariant}
+                    variants={fadeUpVariant}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
