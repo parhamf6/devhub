@@ -145,6 +145,15 @@ export const tools: ToolCardProps[] = [
     version: "1.0.0",
     tags: ["JSON", "TOML", "Converter", "Formatter", "Validator"],
   },
+  {
+    name: 'Base Converter',
+    description: 'Convert numbers between binary, octal, decimal, hexadecimal, and custom bases (2-36).',
+    slug: 'base-converter',
+    info: "Transform diffrent types of binary , octal , hexadecimal and custom bases (2-36) to each other.",
+    category: 'Converter',
+    version: "1.0.0",
+    tags: ['conversion', 'binary', 'hex', 'decimal'],
+  },
 
   // === TEXT & DATA ===
   {

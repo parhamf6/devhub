@@ -89,6 +89,9 @@ export function TimelineDemo() {
                 <div className="flex gap-2 items-center text-xs md:text-sm">
                 ✅ New Cron Expression Generator tool
                 </div>
+                <div className="flex gap-2 items-center text-xs md:text-sm">
+                ✅ New Base Converter tool
+                </div>
             </div>
             </div>
         ),
