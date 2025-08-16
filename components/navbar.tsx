@@ -15,12 +15,12 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, User, ChevronDown, Home, BarChart3, BookOpen, Heart, Grid3X3, Info, Mail, Shield, LogIn, UserPlus , Github } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState , useEffect } from "react"
 import { motion } from "framer-motion"
-import GithubButton from "./ui/github-icon"
 import { UserIcon } from "./animated-icons/user-icon"
-import { GithubIcon } from "./animated-icons/github-icon"
 import { GitHubStarButton } from "./github-btn"
+import { tools } from "@/lib/tools/toolDate"
+import { SearchButtonHome } from "@/features/search/search-btn-home"
 const navLinks = [
     { name: "Home", href: "/", icon: Home },
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
@@ -37,6 +37,12 @@ const moreLinks = [
 export default function Navbar() {
     const [open, setOpen] = useState(false)
     const [moreOpen, setMoreOpen] = useState(false)
+    const allItems = tools
+    const [favorites, setFavorites] = useState<string[]>([]);
+    useEffect(() => {
+          const stored = localStorage.getItem("devhub-favorites");
+          if (stored) setFavorites(JSON.parse(stored));
+        }, []);
     return (
         <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border font-['Poppins',sans-serif]">
         <nav className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
@@ -111,16 +117,8 @@ export default function Navbar() {
             </div>
 
             <div className="flex gap-2">
-                {/* Theme Toggle */}
                 <ThemeToggle />
-            
-                {/* <div>
-                    <a href="https://github.com/parhamf6/devhub">
-                        <Button variant="ghost" size="icon" className="relative">
-                            <GithubIcon />
-                        </Button>
-                    </a>
-                </div> */}
+                <SearchButtonHome items={allItems} favorites={favorites} />
                 <div className="flex items-center gap-4">
                     <GitHubStarButton repoUrl="https://github.com/parhamf6/devhub" count={5} />
                 </div>
@@ -155,7 +153,7 @@ export default function Navbar() {
             {/* Mobile Nav Trigger */}
             <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-
+            <SearchButtonHome items={allItems} favorites={favorites} />
             <div className="flex items-center gap-4">
                 <GitHubStarButton repoUrl="https://github.com/parhamf6/devhub" count={5} />
             </div>

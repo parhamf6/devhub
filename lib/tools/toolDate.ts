@@ -9,6 +9,7 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["generator", "api-key", "password"],
+    type:"tool"
   },
   {
     name: "JWT Decoder & Encoder",
@@ -18,6 +19,7 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["encode", "decode", "authentication"],
+    type:"tool"
   },
   {
     name: "Hash Generator",
@@ -27,6 +29,7 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["cryptography", "checksum"],
+    type:"tool"
   },
   {
     name: "Password Strength Checker",
@@ -36,6 +39,7 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["validator", "security"],
+    type:"tool"
   },
   {
     name: "HMAC Generator",
@@ -45,6 +49,7 @@ export const tools: ToolCardProps[] = [
     category: "Security",
     version: "1.0.0",
     tags: ["signature", "authentication", "cryptography"],
+    type:"tool"
   },
   {
     name: "Bcrypt Generator",
@@ -52,7 +57,8 @@ export const tools: ToolCardProps[] = [
     description: "Advanced bcrypt password hashing and verification tool with customizable rounds.",
     info:"This tool generates and verifies password hashes using the Bcrypt algorithm, an industry standard for secure password storage.",
     category: "Security",
-    tags: ["Security", "Password", "Hashing", "Bcrypt", "Authentication"]
+    tags: ["Security", "Password", "Hashing", "Bcrypt", "Authentication"],
+    type:"tool"
   },
   {
     name: 'RSA Key Pair Generator',
@@ -61,6 +67,7 @@ export const tools: ToolCardProps[] = [
     info:"Generate a new random RSA private and public PEM certificate key pair for encryption and digital signatures",
     category: 'Security',
     tags: ['security', 'encryption', 'cryptography', 'devops'],
+    type:"tool"
   },
 
   // === GENERATOR ===
@@ -72,6 +79,7 @@ export const tools: ToolCardProps[] = [
     category: "Generator",
     version: "1.0.0",
     tags: ["identifier", "unique-id"],
+    type:"tool"
   },
   {
     name: 'ULID Generator',
@@ -80,6 +88,7 @@ export const tools: ToolCardProps[] = [
     info:"ULID is a 26-character, universally unique, lexicographically sortable identifier.",
     category: 'Generator',
     tags: ['ulid', 'identifier', 'sortable', 'time-based'],
+    type:"tool"
   },
   {
     name: "Cron Expression Generator",
@@ -89,6 +98,7 @@ export const tools: ToolCardProps[] = [
     category: "Generator",
     version: "1.0.0",
     tags: ["cron", "scheduler", "automation", "devops"],
+    type:"tool"
   },
   // {
   //   name: "Lorem Ipsum Generator",
@@ -99,15 +109,6 @@ export const tools: ToolCardProps[] = [
   //   version: "1.0.0",
   //   tags: ["text", "mockup"],
   // },
-  // {
-  //   name: "Cron Job Generator",
-  //   slug: "cron-generator",
-  //   description: "Build and validate cron expressions",
-  //   info: "Create cron schedules with a visual builder. Validate syntax and preview upcoming run times.",
-  //   category: "Generator",
-  //   version: "1.0.0",
-  //   tags: ["scheduler", "automation"],
-  // },
   // === CONVERTER ===
   {
     name: "JSON ↔ YAML Converter",
@@ -117,6 +118,7 @@ export const tools: ToolCardProps[] = [
     category: "Converter",
     version: "1.0.0",
     tags: ["json", "yaml", "validate", "format"],
+    type:"tool"
   },
   {
     name: "JSON ↔ CSV Converter",
@@ -126,6 +128,7 @@ export const tools: ToolCardProps[] = [
     category: "Converter",
     version: "1.0.0",
     tags: ["json", "csv", "data"],
+    type:"tool"
   },
   {
     name: "JSON ↔ XML Converter",
@@ -135,6 +138,7 @@ export const tools: ToolCardProps[] = [
     category: "Converter",
     version: "1.0.0",
     tags: ["JSON", "XML", "Converter", "Formatter", "Validator"],
+    type:"tool"
   },
   {
     name: "JSON ↔ TOML Converter",
@@ -144,6 +148,16 @@ export const tools: ToolCardProps[] = [
     category: "Converter",
     version: "1.0.0",
     tags: ["JSON", "TOML", "Converter", "Formatter", "Validator"],
+    type:"tool"
+  },
+  {
+    name: 'TOML-YAML Converter',
+    description: 'Convert between TOML and YAML formats with advanced options',
+    slug: 'toml-yaml-converter',
+    info:"Transform Yaml to Toml and vice versa. Supports nested arrays and custom delimiters.",
+    category: 'Data Converters',
+    tags: ['TOML', 'yaml', 'Converter', 'data'],
+    type:"tool"
   },
   {
     name: 'Base Converter',
@@ -152,7 +166,8 @@ export const tools: ToolCardProps[] = [
     info: "Transform diffrent types of binary , octal , hexadecimal and custom bases (2-36) to each other.",
     category: 'Converter',
     version: "1.0.0",
-    tags: ['conversion', 'binary', 'hex', 'decimal'],
+    tags: ['Converter', 'binary', 'hex', 'decimal'],
+    type:"tool"
   },
 
   // === TEXT & DATA ===
@@ -164,6 +179,7 @@ export const tools: ToolCardProps[] = [
     category: "Text & Data",
     version: "1.0.0",
     tags: ["encode", "decode", "file"],
+    type:"tool"
   },
   // {
   //   name: "Regex Tester",
@@ -182,6 +198,7 @@ export const tools: ToolCardProps[] = [
     category: "Text & Data",
     version: "1.0.0",
     tags: ["url", "encode", "decode"],
+    type:"tool"
   },
   // {
   //   name: "Markdown Previewer",
@@ -202,6 +219,7 @@ export const tools: ToolCardProps[] = [
     category: "Networking",
     version: "1.0.0",
     tags: ["api", "http", "debug"],
+    type:"tool"
   },
   // {
   //   name: "HTTP Status Code Lookup",
@@ -249,6 +267,7 @@ export const tools: ToolCardProps[] = [
     category: "Design",
     version: "1.0.0",
     tags: ["palette", "accessibility", "css"],
+    type:"tool"
   },
   // {
   //   name: "CSS Unit Converter",

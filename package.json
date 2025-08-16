@@ -46,6 +46,7 @@
     "cronstrue": "^3.2.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.6",
+    "fuse.js": "^7.1.0",
     "highlight.js": "^11.11.1",
     "install": "^0.13.0",
     "jose": "^6.0.12",

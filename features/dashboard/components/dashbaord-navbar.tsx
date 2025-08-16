@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 // import { useIsMobile } from "@/hooks/use-mobile"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -8,9 +8,17 @@ import Link from "next/link"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { GitHubStarButton } from "@/components/github-btn"
 import { GithubIcon } from "@/components/animated-icons/github-icon"
+import { SearchButtonDash } from "@/features/search/search-btn-dash"
+import { tools } from "@/lib/tools/toolDate"
+import { useState , useEffect } from "react"
 export default function DashboardNavbar() {
     // const isMobile = useIsMobile()
-
+    const allItems = tools
+    const [favorites, setFavorites] = useState<string[]>([]);
+    useEffect(() => {
+          const stored = localStorage.getItem("devhub-favorites");
+          if (stored) setFavorites(JSON.parse(stored));
+        }, []);
     return (
         <header className="flex items-center justify-between px-4 py-2 border-b bg-background shadow-sm h-[56px]">
         {/* Left: Logo or Title */}
@@ -32,6 +40,7 @@ export default function DashboardNavbar() {
                     </a>
                 </Button>
             </div>
+            <SearchButtonDash items={allItems} favorites={favorites} />
             {/* Settings button (could open a modal or dropdown later) */}
             {/* <Button variant="ghost" size="icon">
             <Settings className="h-5 w-5" />

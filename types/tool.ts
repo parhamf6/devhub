@@ -1,4 +1,3 @@
-// Your existing ToolCardProps interface
 
 // Your existing ToolCardProps interface
 export type Tool = {

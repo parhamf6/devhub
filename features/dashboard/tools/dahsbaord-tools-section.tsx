@@ -59,14 +59,14 @@ export default function DashbaordToolsSection() {
             {showOnlyFavorites ? "★ Favorites" : "☆ Show Favorites"}
           </Button>
         </div>
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           <Input
             placeholder="Search by name, tag, category..."
             className="max-w-sm h-[48px] w-[512px]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        </div>
+        </div> */}
         
       </div>
 

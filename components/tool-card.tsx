@@ -38,6 +38,8 @@ export type ToolCardProps = {
   tags?: string[];
   withFavoriteToggle?: boolean;
   isFavorite?: boolean;
+  // type?:string;
+  type: 'tool' | 'cheatsheet';
   onToggleFavorite?: () => void;
 };
 

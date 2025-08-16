@@ -50,12 +50,12 @@ export default function ToolsTagsPageSection() {
       {/* Header and Search */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <h1 className="text-3xl font-bold">Tools by Tags</h1>
-        <Input
+        {/* <Input
           placeholder="Search by name, tag, category..."
           className="max-w-sm h-[48px] w-full sm:w-[512px]"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-        />
+        /> */}
       </div>
 
       {/* Tags */}

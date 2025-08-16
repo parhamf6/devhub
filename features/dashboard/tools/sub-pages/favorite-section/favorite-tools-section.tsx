@@ -55,14 +55,14 @@ export default function FavoriteToolsPageSection() {
         <div className="flex flex-wrap gap-4 items-center justify-center">
           <h1 className="text-3xl font-bold text-center">🛠️ Favorite Tools</h1>
         </div>
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           <Input
             placeholder="Search by name, tag, category..."
             className="max-w-sm h-[48px] w-[512px]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        </div>
+        </div> */}
         
       </div>
 
