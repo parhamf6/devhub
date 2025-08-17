@@ -222,7 +222,7 @@ const HashGenerator = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto p-6 space-y-8">
+      <div className="container mx-auto p-2 md:p-6 space-y-8">
         {/* Header */}
         <div className="flex flex-col gap-4 justify-between">
           <div className="flex justify-between gap-4 flex-wrap">

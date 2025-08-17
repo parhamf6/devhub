@@ -304,7 +304,7 @@ export default function CurlBuilderPage() {
 
   return (
     <TooltipProvider>
-      <div className="container mx-auto p-6 space-y-6 max-w-7xl">
+      <div className="container mx-auto p-2 md:p-6 space-y-6 max-w-7xl">
         {/* Enhanced Header */}
         <div className="flex flex-col flex-wrap gap-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

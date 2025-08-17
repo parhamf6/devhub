@@ -40,7 +40,7 @@ export default function UUIDGeneratorPage() {
     };
 
     return (
-        <div className="flex flex-col p-6 space-y-6">
+        <div className="flex flex-col p-2 md:p-6 space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>

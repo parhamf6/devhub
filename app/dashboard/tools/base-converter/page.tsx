@@ -598,7 +598,7 @@ export default function BaseConverterPage() {
   const numberInfo = getNumberInfo();
 
   return (
-    <div className="flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 p-2 md:p-6">
       {/* Header */}
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-start flex-wrap gap-4">
@@ -967,17 +967,17 @@ export default function BaseConverterPage() {
               <Download className="h-4 w-4 mr-2" />
               Export CSV
             </Button>
-            <Button onClick={handleShare} variant="outline">
+            {/* <Button onClick={handleShare} variant="outline">
               <Share className="h-4 w-4 mr-2" />
               Share
-            </Button>
+            </Button> */}
           </div>
         </TabsContent>
 
         {/* Operations Tab */}
         <TabsContent value="operations" className="space-y-6">
           <Tabs defaultValue="bit">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="w-full flex">
               <TabsTrigger value="bit">Bit Operations</TabsTrigger>
               <TabsTrigger value="arithmetic">Arithmetic</TabsTrigger>
               <TabsTrigger value="manipulation">Bit Manipulation</TabsTrigger>

@@ -39,10 +39,10 @@ import {
         >
         <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
             <h2 className="text-2xl md:text-4xl mb-4  max-w-4xl">
-            Changelog from out journey
+            Our journey
             </h2>
             <p className=" text-sm md:text-base max-w-sm">
-            I&apos;ve been working on Devhub since july of 2024. Here&apos;s
+            I&apos;ve been working on Devhub since july of 2025. Here&apos;s
             a timeline of our journey.
             </p>
         </div>

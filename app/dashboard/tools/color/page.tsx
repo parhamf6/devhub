@@ -433,7 +433,7 @@ export default function ColorPickerPage() {
   };
 
   return (
-    <div className="container mx-auto p-4 md:p-6 space-y-6 md:space-y-8">
+    <div className="container mx-auto p-2 md:p-6 space-y-6 md:space-y-8">
       {/* Header */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

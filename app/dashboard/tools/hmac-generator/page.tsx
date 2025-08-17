@@ -180,11 +180,11 @@ export default function HMACGeneratorPage() {
   const selectedAlgorithm = ALGORITHMS.find(a => a.value === algorithm);
 
   return (
-    <div className="flex flex-col justify-center p-6 space-y-6 mx-auto">
+    <div className="flex flex-col justify-center p-2 md:p-6 space-y-6 mx-auto">
       <div className="flex flex-col gap-4">
         <div className='flex justify-between gap-4 flex-wrap'>
           <div className="flex items-center gap-2">
-            <Hash className="h-6 w-6 text-primary" />
+            {/* <Hash className="h-6 w-6 text-primary" /> */}
             <h1 className="text-2xl font-bold">{tool.name}</h1>
           </div>
           

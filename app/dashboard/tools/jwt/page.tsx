@@ -305,7 +305,7 @@ export default function AdvancedJWTTool(): JSX.Element {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto p-6 space-y-8">
+      <div className="container mx-auto p-2 md:p-6 space-y-8">
         {/* Header */}
         {/* <div className="text-center space-y-4">
           <div className="flex items-center justify-center gap-3">

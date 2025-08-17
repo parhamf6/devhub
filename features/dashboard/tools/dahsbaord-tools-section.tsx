@@ -7,11 +7,18 @@ import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { tools } from '@/lib/tools/toolDate'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { ChevronDown } from "lucide-react"
 export default function DashbaordToolsSection() {
   const [search, setSearch] = useState("");
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false); // NEW
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false); 
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const stored = localStorage.getItem("devhub-favorites");
@@ -43,6 +50,11 @@ export default function DashbaordToolsSection() {
     });
   }, [search, favorites, showOnlyFavorites]);
 
+  const categories = useMemo(() => {
+    const set = new Set(tools.map((tool) => tool.category))
+    return Array.from(set).sort((a, b) => a.localeCompare(b))
+  }, [])
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
@@ -69,6 +81,48 @@ export default function DashbaordToolsSection() {
         </div> */}
         
       </div>
+      
+
+
+      {/* <Collapsible open={open} onOpenChange={setOpen} className="w-full">
+      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted/50">
+        <span>Categories</span>
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="mt-2 rounded-lg border p-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {categories.map((cat) => (
+            <Button
+              key={cat}
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const url = new URL(window.location.href)
+                url.searchParams.set("category", cat)
+                window.history.pushState({}, "", url)
+                window.dispatchEvent(new Event("popstate"))
+              }}
+            >
+              {cat}
+            </Button>
+          ))}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              const url = new URL(window.location.href)
+              url.searchParams.delete("category")
+              window.history.pushState({}, "", url)
+              window.dispatchEvent(new Event("popstate"))
+            }}
+          >
+            Clear
+          </Button>
+        </div>
+      </CollapsibleContent>
+    </Collapsible> */}
 
       <div className="flex flex-wrap gap-4 items-center justify-center">
         {filteredTools.map((tool) => (

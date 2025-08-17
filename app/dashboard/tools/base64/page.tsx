@@ -187,7 +187,7 @@ export default function Base64EncoderPage() {
     };
 
     return (
-        <div className="flex flex-col justify-center p-6 space-y-6">
+        <div className="flex flex-col justify-center p-2 md:p-6 space-y-6">
             {/* Header */}
             <div className="flex flex-col gap-4 justify-between">
                 <div className='flex justify-between gap-4 flex-wrap'>

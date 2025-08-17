@@ -158,7 +158,7 @@ const BcryptGenerator = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto p-6 space-y-8">
+      <div className="container mx-auto p-2 md:p-6 space-y-8">
         {/* Header */}
         <div className="flex flex-col gap-4 justify-between">
           <div className="flex justify-between gap-4 flex-wrap">
@@ -183,18 +183,15 @@ const BcryptGenerator = () => {
             <p className="text-muted-foreground">{tool.description}</p>
           </div>
         </div>
-
         {/* Main Tool */}
-        <Card className="shadow-lg bg-background border-border">
-          <CardContent className="p-6">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="generate" className="flex items-center gap-2">
-                  <Hash className="h-4 w-4" />
+                  {/* <Hash className="h-4 w-4" /> */}
                   Generate Hash
                 </TabsTrigger>
                 <TabsTrigger value="verify" className="flex items-center gap-2">
-                  <Shield className="h-4 w-4" />
+                  {/* <Shield className="h-4 w-4" /> */}
                   Verify Password
                 </TabsTrigger>
               </TabsList>
@@ -392,7 +389,8 @@ const BcryptGenerator = () => {
                   <div className="space-y-4">
                     <div className="relative">
                       <label className="text-sm font-medium mb-2 block">Password</label>
-                      <Input
+                      <div className='relative'>
+                        <Input
                         type={showVerifyPassword ? "text" : "password"}
                         value={verifyPassword}
                         onChange={(e) => setVerifyPassword(e.target.value)}
@@ -400,15 +398,16 @@ const BcryptGenerator = () => {
                         className="pr-10"
                         autoComplete="off"
                       />
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="icon"
-                        className="absolute right-0 top-8 h-full px-3"
-                        onClick={() => setShowVerifyPassword(!showVerifyPassword)}
-                      >
-                        {showVerifyPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                      </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="absolute right-0 top-0 h-full px-3"
+                          onClick={() => setShowVerifyPassword(!showVerifyPassword)}
+                        >
+                          {showVerifyPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                        </Button>
+                      </div>
                     </div>
                     
                     <div>
@@ -454,9 +453,7 @@ const BcryptGenerator = () => {
                 </div>
               </div>
             )}
-          </CardContent>
-        </Card>
-
+        
         {/* Info Section */}
         <Card>
           <CardHeader>

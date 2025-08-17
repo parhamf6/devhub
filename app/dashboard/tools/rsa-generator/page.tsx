@@ -225,7 +225,7 @@ export default function RSAGeneratorPage() {
 
   return (
     <TooltipProvider>
-      <div className="container mx-auto p-6 space-y-6 max-w-7xl">
+      <div className="container mx-auto p-2 md:p-6 space-y-6 max-w-7xl">
         {/* Header */}
         <div className="flex flex-col flex-wrap gap-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -603,7 +603,7 @@ export default function RSAGeneratorPage() {
                       </CardHeader>
                       {expandedSections.fingerprint && (
                         <CardContent>
-                          <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
+                          <div className="flex items-center gap-3 p-3 bg-muted rounded-lg overflow-x-scroll">
                             <Fingerprint className="w-8 h-8 text-purple-500" />
                             <div>
                               <div className="font-mono text-sm">{keyPair.fingerprint}</div>

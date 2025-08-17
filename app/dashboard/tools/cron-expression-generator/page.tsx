@@ -109,13 +109,13 @@ export default function CronExpressionBuilderPage() {
 
   return (
     <TooltipProvider>
-      <div className="flex flex-col justify-center p-6 space-y-6">
+      <div className="flex flex-col justify-center p-2 md:p-6 space-y-6">
         {/* Header */}
         <div className="flex flex-col gap-4 justify-between">
           <div className='flex justify-between gap-4 flex-wrap'>
             <div>
               <h1 className="text-2xl font-bold flex items-center gap-2">
-                <Clock className="w-6 h-6" />
+                {/* <Clock className="w-6 h-6" /> */}
                 {tool.name}
               </h1>
             </div>
@@ -145,15 +145,15 @@ export default function CronExpressionBuilderPage() {
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="builder" className="flex items-center gap-2">
-                  <Settings className="w-4 h-4" />
+                  {/* <Settings className="w-4 h-4" /> */}
                   Builder
                 </TabsTrigger>
                 <TabsTrigger value="manual" className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" />
+                  {/* <BookOpen className="w-4 h-4" /> */}
                   Manual
                 </TabsTrigger>
                 <TabsTrigger value="presets" className="flex items-center gap-2">
-                  <Zap className="w-4 h-4" />
+                  {/* <Zap className="w-4 h-4" /> */}
                   Presets
                 </TabsTrigger>
               </TabsList>
@@ -276,7 +276,7 @@ export default function CronExpressionBuilderPage() {
                         {presets.filter(preset => preset.category === category).map((preset, index) => (
                           <div
                             key={index}
-                            className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
+                            className="flex justify-between flex-col md:flex-row p-3 gap-2 border rounded-lg hover:bg-muted/50 cursor-pointer transition-colors"
                             onClick={() => handlePresetSelect(preset)}
                           >
                             <div className="flex-1">
@@ -364,7 +364,7 @@ export default function CronExpressionBuilderPage() {
             )}
 
             {/* Next Run Times */}
-            {nextRuns.length > 0 && (
+            {/* {nextRuns.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center text-coral gap-2">
@@ -390,7 +390,7 @@ export default function CronExpressionBuilderPage() {
                   </ScrollArea>
                 </CardContent>
               </Card>
-            )}
+            )} */}
 
             {/* Quick Reference */}
             <Card>
