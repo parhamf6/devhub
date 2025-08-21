@@ -181,15 +181,16 @@ export const tools: ToolCardProps[] = [
     tags: ["encode", "decode", "file"],
     type:"tool"
   },
-  // {
-  //   name: "Regex Tester",
-  //   slug: "regex-tester",
-  //   description: "Test and debug regex patterns in real-time",
-  //   info: "Write and test regular expressions with live matches. Includes cheatsheet and flags.",
-  //   category: "Text & Data",
-  //   version: "1.0.0",
-  //   tags: ["pattern", "validation", "test"],
-  // },
+  {
+    name: "Regex Tester",
+    slug: "regex-tester",
+    description: "Test and debug regex patterns in real-time",
+    info: "Write and test regular expressions with live matches. Includes cheatsheet and flags.",
+    category: "Text & Data",
+    version: "1.0.0",
+    tags: ["pattern", "validation", "test"],
+    type:"tool",
+  },
   {
     name: "URL Encoder/Decoder",
     slug: "url-encoder-decoder",

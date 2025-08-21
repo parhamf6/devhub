@@ -1,3 +1,4 @@
 {
-    "git.enabled": true
+    "git.enabled": true,
+    "editor.fontFamily": "Ubuntu mono, Fira Code, monospace"
 }
