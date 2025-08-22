@@ -1,5 +1,6 @@
 'use client'
 import { Calendar, Home, Inbox, Search, Settings ,ChevronDown    } from "lucide-react"
+import Link from "next/link"
 import { ToolCase } from "lucide-react"
 import {
   Sidebar,
@@ -36,7 +37,7 @@ export function AppSidebar() {
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a
+                      <Link
                         href={item.url}
                         className={clsx(
                           'flex items-center gap-2 px-3 py-2 rounded-md transition-colors',
@@ -47,7 +48,7 @@ export function AppSidebar() {
                       >
                         <item.icon className="w-4 h-4" />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )

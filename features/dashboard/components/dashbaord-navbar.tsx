@@ -35,9 +35,9 @@ export default function DashboardNavbar() {
             <ThemeToggle />
             <div >
                 <Button variant="ghost" size="icon" className="relative">
-                    <a href="https://github.com/parhamf6/devhub">
+                    <Link target="_blank" href="https://github.com/parhamf6/devhub">
                         <GithubIcon />
-                    </a>
+                    </Link>
                 </Button>
             </div>
             <SearchButtonDash items={allItems} favorites={favorites} />

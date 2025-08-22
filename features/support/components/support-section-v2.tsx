@@ -21,6 +21,7 @@ import { FooterV2 } from '@/components/global/footer-v2';
 // import SpotlightCard from "./spotlight-card";
 import { Highlight } from "../../../components/text-animation/hero-highlighter";
 import { ReactNode } from "react";
+import Link from 'next/link';
 
 type SpotlightCardProps = {
     children: ReactNode;
@@ -292,14 +293,14 @@ export default function SupportPage2() {
                         {option.links && (
                         <div className="space-y-2">
                             {option.links.map((link, i) => (
-                            <a
+                            <Link
                                 key={i}
                                 href={link.href}
                                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                             >
                                 <link.icon className="w-4 h-4" />
                                 {link.label}
-                            </a>
+                            </Link>
                             ))}
                         </div>
                         )}

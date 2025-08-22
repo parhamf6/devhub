@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 
 import 'highlight.js/styles/github-dark.css'
+import Link from 'next/link'
 
 interface EnhancedMarkdownRendererProps {
   content: string
@@ -183,7 +184,7 @@ export function EnhancedMarkdownRenderer({ content }: EnhancedMarkdownRendererPr
     ),
 
     a: ({ children, href, ...props }: any) => (
-      <a
+      <Link
         href={href}
         className="text-primary hover:underline font-medium"
         target="_blank"
@@ -191,7 +192,7 @@ export function EnhancedMarkdownRenderer({ content }: EnhancedMarkdownRendererPr
         {...props}
       >
         {children}
-      </a>
+      </Link>
     ),
 
     hr: (props: any) => <hr className="my-8 border-t border-border" {...props} />,

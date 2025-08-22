@@ -11,6 +11,7 @@ import { FrameIcon } from 'lucide-react';
 import { GithubIcon } from '../animated-icons/github-icon';
 import { LinkedinIcon } from '../animated-icons/linkedin-icon';
 import { TwitterIcon } from '../animated-icons/twitter-icon';
+import Link from 'next/link';
 
 const footerSections = [
     {
@@ -67,9 +68,9 @@ export function FooterV2() {
             </p>
 
             <div className="flex space-x-4 pt-4">
-                <a href="#" aria-label="GitHub"><GithubIcon className="size-5 hover:text-primary" /></a>
-                <a href="#" aria-label="X / Twitter"><TwitterIcon className="size-5 hover:text-primary" /></a>
-                <a href="#" aria-label="LinkedIn"><LinkedinIcon className="size-5 hover:text-primary" /></a>
+                <Link href="#" aria-label="GitHub"><GithubIcon className="size-5 hover:text-primary" /></Link>
+                <Link href="#" aria-label="X / Twitter"><TwitterIcon className="size-5 hover:text-primary" /></Link>
+                <Link href="#" aria-label="LinkedIn"><LinkedinIcon className="size-5 hover:text-primary" /></Link>
             </div>
             </AnimatedContainer>
 
@@ -81,12 +82,12 @@ export function FooterV2() {
                 <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                     {section.links.map((link) => (
                     <li key={link.title}>
-                        <a
+                        <Link
                         href={link.href}
                         className="hover:text-primary transition-colors duration-300"
                         >
                         {link.title}
-                        </a>
+                        </Link>
                     </li>
                     ))}
                 </ul>
@@ -118,9 +119,9 @@ export function FooterV2() {
 
         {/* Bottom Bar */}
         <div className="mt-10 border-t flex flex-col pt-6 text-center text-sm text-muted-foreground">
-            <a href='https://portfoblog-front-private.vercel.app/' >
+            <Link href='https://portfoblog-front-private.vercel.app/' >
                 <span className='hover:text-accent transition-colors duration-300'>Made with Love by Parham.F</span>
-            </a>
+            </Link>
             © {new Date().getFullYear()} Dev Hub. All rights reserved.
         </div>
         </footer>

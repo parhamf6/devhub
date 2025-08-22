@@ -36,6 +36,7 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { title } from "process"
 import { categories } from "@/lib/tools/categories"
+import Link from "next/link"
 
 // This is sample data.
 const items = [
@@ -153,7 +154,7 @@ export function AppSidebarV3({ ...props }: React.ComponentProps<typeof Sidebar>)
                             return (
                             <SidebarMenuItem key={item.title}>
                                 <SidebarMenuButton tooltip={item.title} asChild>
-                                <a
+                                <Link
                                     href={item.url}
                                     className={clsx(
                                     'flex items-center gap-2 px-3 py-2 rounded-md transition-colors',
@@ -164,7 +165,7 @@ export function AppSidebarV3({ ...props }: React.ComponentProps<typeof Sidebar>)
                                 >
                                     <item.icon className="w-4 h-4" />
                                     <span>{item.title}</span>
-                                </a>
+                                </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             )

@@ -2,6 +2,7 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion"
+import Link from "next/link";
 
 type FeatureCardItemProps = {
     icon: React.ReactNode;
@@ -28,10 +29,10 @@ const FeatureCardItem: React.FC<FeatureCardItemProps> = ({
             </div>
             <div className=" text-accent border p-2  rounded-[16px] text-sm font-medium
             hover:bg-accent hover:text-background transition-colors duration-300 ring">
-                <a href="" className="flex gap-2 items-center justify-center">
+                <Link href="" className="flex gap-2 items-center justify-center">
                     {linkLabel}
                     <ChevronRight className="text-sm" />
-                </a>
+                </Link>
             </div>
         </div>
     );
