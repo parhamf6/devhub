@@ -252,7 +252,6 @@ export default function Base64EncoderPage() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentHistoryIndex, setCurrentHistoryIndex] = useState(-1);
     const [autoSave, setAutoSave] = useState(true);
-    const [darkMode, setDarkMode] = useState(false);
     
     const fileInputRef = useRef<HTMLInputElement>(null);
     const outputRef = useRef<HTMLTextAreaElement>(null);
@@ -271,9 +270,6 @@ export default function Base64EncoderPage() {
                 console.error('Failed to parse history', e);
             }
         }
-        
-        const savedDarkMode = localStorage.getItem('dark-mode') === 'true';
-        setDarkMode(savedDarkMode);
     }, []);
     
     // Save history to localStorage when it changes
@@ -283,15 +279,6 @@ export default function Base64EncoderPage() {
         }
     }, [history, autoSave]);
     
-    // Save dark mode preference
-    useEffect(() => {
-        localStorage.setItem('dark-mode', darkMode.toString());
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
     
     const processInput = useCallback(async () => {
         if (!tool?.process) return;
@@ -628,7 +615,7 @@ export default function Base64EncoderPage() {
     };
     
     return (
-        <div className={`flex flex-col justify-center p-2 md:p-6 space-y-6 ${darkMode ? 'dark' : ''}`}>
+        <div className={`flex flex-col justify-center p-2 md:p-6 space-y-6`}>
             {/* Header */}
             <div className="flex flex-col gap-4 justify-between">
                 <div className='flex justify-between gap-4 flex-wrap'>

@@ -52,9 +52,10 @@ function generateULID(options?: ULIDOptions): string[] {
   
   // Sort ULIDs if needed
   if (sortDirection === 'asc') {
-    ulids.sort();
+    ulids.sort((a, b) => a.localeCompare(b));
   } else if (sortDirection === 'desc') {
-    ulids.sort().reverse();
+    // reverse sort
+    ulids.sort((a, b) => b.localeCompare(a));
   }
   
   return ulids;

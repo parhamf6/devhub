@@ -62,11 +62,11 @@ export const useSearch = (items: SearchableItem[], favorites: string[] = []) => 
   }, [items, query, filters, favorites, fuse]);
 
   const categories = useMemo(() => 
-    [...new Set(items.map(item => item.category))].sort()
+    [...new Set(items.map(item => item.category))].sort((a,b) => a.localeCompare(b))
   , [items]);
 
   const allTags = useMemo(() => 
-    [...new Set(items.flatMap(item => item.tags || []))].sort()
+    [...new Set(items.flatMap(item => item.tags || []))].sort((a,b)=> a.localeCompare(b))
   , [items]);
 
   return {

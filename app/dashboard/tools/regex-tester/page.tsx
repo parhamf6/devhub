@@ -1499,7 +1499,7 @@ export default function RegexTesterPage() {
                             )}
                             
                             <Tabs defaultValue="cheatsheet" className="w-full">
-                                <TabsList className={`grid ${isMobile ? 'grid-cols-3' : 'grid-cols-3'} w-full`}>
+                                <TabsList className={`grid grid-cols-3 w-full`}>
                                     <TabsTrigger value="cheatsheet" className="text-xs">Reference</TabsTrigger>
                                     <TabsTrigger value="history" className="text-xs">Saved</TabsTrigger>
                                     <TabsTrigger value="examples" className="text-xs">Presets</TabsTrigger>
