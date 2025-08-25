@@ -155,7 +155,7 @@ export const tools: ToolCardProps[] = [
     description: 'Convert between TOML and YAML formats with advanced options',
     slug: 'toml-yaml-converter',
     info:"Transform Yaml to Toml and vice versa. Supports nested arrays and custom delimiters.",
-    category: 'Data Converters',
+    category: 'Converter',
     tags: ['TOML', 'yaml', 'Converter', 'data'],
     type:"tool"
   },
