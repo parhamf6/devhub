@@ -11,6 +11,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipTrigger , TooltipProvider , TooltipContent } from '@/components/ui/tooltip';
 import { 
   Copy, 
   RefreshCcw, 
@@ -35,7 +36,7 @@ import {
   Trash2,
   Plus,
   X,
-  Dice3
+  Dice3, Bookmark
 } from 'lucide-react';
 import jwtTool from '@/lib/tools/tool/jwt';
 import { LearnButton } from '@/features/dashboard/tools/components/learn-button';
@@ -627,8 +628,8 @@ export default function AdvancedJWTTool(): JSX.Element {
                 onClick={() => setShowHistory(!showHistory)}
                 className="border-border hover:bg-accent"
               >
-                <History className="w-4 h-4 mr-2" />
-                History
+                <Bookmark className="w-4 h-4 mr-2" />
+                Saved
               </Button>
               <LearnButton 
                 tool={{
@@ -655,7 +656,7 @@ export default function AdvancedJWTTool(): JSX.Element {
               <CardTitle className="flex items-center justify-between text-base">
                 <span className="flex items-center gap-2">
                   <History className="w-4 h-4" />
-                  Token History
+                  Saved Tokens
                 </span>
                 <Button variant="ghost" size="sm" onClick={() => setShowHistory(false)}>
                   <X className="w-4 h-4" />
@@ -963,28 +964,42 @@ export default function AdvancedJWTTool(): JSX.Element {
                           </Select>
                         </div>
                         <div>
-                          <Label className="flex items-center justify-between text-foreground">
+                          <div className="flex items-center justify-between text-foreground">
                             Secret Key
                             <div className="flex gap-1">
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => setShowSecret(!showSecret)}
-                                className="hover:bg-accent"
-                              >
-                                {showSecret ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                              </Button>
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={generateRandomSecret}
-                                className="hover:bg-accent"
-                                title="Generate random secret"
-                              >
-                                <Dice3 className="w-4 h-4" />
-                              </Button>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => setShowSecret(!showSecret)}
+                                    className="hover:bg-accent"
+                                  >
+                                    {showSecret ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  View The Secret Key
+                                </TooltipContent>
+                              </Tooltip>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={generateRandomSecret}
+                                    className="hover:bg-accent"
+                                    title="Generate random secret"
+                                  >
+                                    <Dice3 className="w-4 h-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  Generate Random Secret Key
+                                </TooltipContent>
+                              </Tooltip>
                             </div>
-                          </Label>
+                          </div>
                           <Input
                             type={showSecret ? "text" : "password"}
                             value={secretKey}

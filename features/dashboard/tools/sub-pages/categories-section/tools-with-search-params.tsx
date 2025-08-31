@@ -41,7 +41,7 @@ export default function ToolsListWithSearchParams({
     return <p className="text-muted-foreground text-center pt-10">No tools found.</p>
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+    <div className="flex flex-wrap items-center justify-between gap-6 pt-6">
       {filteredTools.map((tool) => (
         <motion.div key={tool.slug} whileHover={{ scale: 1.03 }}>
           <ToolCard

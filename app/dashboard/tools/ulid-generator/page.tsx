@@ -32,11 +32,13 @@ import {
   Trash2,
   Save,
   Info,
-  AlertTriangle
+  AlertTriangle,
+  Bookmark
 } from 'lucide-react';
 import { LearnButton } from '@/features/dashboard/tools/components/learn-button';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { Tooltip , TooltipContent , TooltipTrigger } from '@/components/ui/tooltip';
 
 const tool = ulidGenerator;
 
@@ -402,8 +404,8 @@ export default function ULIDGeneratorPage() {
             size="default"
             onClick={() => setShowHistory(!showHistory)}
           >
-            <History className="w-4 h-4 mr-2" />
-            History
+            <Bookmark className="w-4 h-4 mr-2" />
+            Saved
           </Button>
           <LearnButton
             tool={{
@@ -426,7 +428,7 @@ export default function ULIDGeneratorPage() {
             <CardTitle className="flex items-center justify-between text-base">
               <span className="flex items-center gap-2">
                 <History className="w-4 h-4" />
-                ULID History
+                ULID Saves
               </span>
               <Button variant="ghost" size="sm" onClick={() => setShowHistory(false)}>
                 <X className="w-4 h-4" />
@@ -436,7 +438,7 @@ export default function ULIDGeneratorPage() {
           <CardContent className="p-0 overflow-y-auto max-h-[60vh]">
             {history.length === 0 ? (
               <div className="p-4 text-center text-muted-foreground text-sm">
-                No history yet
+                No Saves yet
               </div>
             ) : (
               <div className="divide-y">
@@ -664,29 +666,53 @@ export default function ULIDGeneratorPage() {
                       className="hidden" 
                       accept=".txt,.json,.csv,.js"
                     />
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => fileInputRef.current?.click()}
-                    >
-                      <Upload className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={exportULIDs}
-                      disabled={ulids.length === 0}
-                    >
-                      <Download className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={copyAll}
-                      disabled={ulids.length === 0}
-                    >
-                      <Copy className="w-4 h-4" />
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => fileInputRef.current?.click()}
+                        >
+                          <Upload className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        import ULIDs
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={exportULIDs}
+                          disabled={ulids.length === 0}
+                        >
+                          <Download className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Download generated ULIDs in txt format
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={copyAll}
+                          disabled={ulids.length === 0}
+                        >
+                          <Copy className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Copy Generated ULIDs
+                      </TooltipContent>
+                    </Tooltip>
+
+                    
+
                   </div>
                 </CardTitle>
               </CardHeader>

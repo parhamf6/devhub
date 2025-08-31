@@ -1,7 +1,8 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { motion , Variants } from 'framer-motion';
-import { ArrowRight, Code, FileText, Layers, Palette, Zap } from 'lucide-react';
+import { ArrowRight, Code, FileText, Layers, Palette, Zap , Shield , Book } from 'lucide-react';
+import Link from 'next/link';
 
 interface BentoGridItemProps {
     title: string;
@@ -45,10 +46,10 @@ interface BentoGridItemProps {
             <h3 className="mb-2 text-xl font-semibold tracking-tight">{title}</h3>
             <p className="text-sm text-muted-foreground">{description}</p>
             </div>
-            <div className="mt-4 flex items-center text-sm text-primary">
-            <span className="mr-1">Learn more</span>
-            <ArrowRight className="size-4 transition-all duration-500 group-hover:translate-x-2" />
-            </div>
+            <Link href="/dashboard" className="mt-4 flex items-center text-sm text-primary transition-all duration-500 hover:text-coral">
+                <span className="mr-1">Use Tools</span>
+                <ArrowRight className="size-4 transition-all duration-500 group-hover:translate-x-2" />
+            </Link>
         </div>
         <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-primary/30 blur-2xl transition-all duration-500 group-hover:blur-lg" />
         </motion.div>
@@ -72,14 +73,14 @@ interface BentoGridItemProps {
     },
     {
         title: 'Learning Resources',
-        description: 'Comprehensive guides and examples to help you get started quickly.',
-        icon: <Layers className="size-6" />,
+        description: 'Comprehensive guides and examples to help you get started quickly for each tool.',
+        icon: <Book className="size-6" />,
         size: 'medium' as const,
     },
     {
-        title: 'Customizable',
-        description: "Tailor components to match your brand's unique style.",
-        icon: <Palette className="size-6" />,
+        title: 'Privacy First',
+        description: "Full cliend side data storing , no server no data, completely anonymous.",
+        icon: <Shield className="size-6" />,
         size: 'medium' as const,
     },
 ];

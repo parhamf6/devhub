@@ -64,7 +64,7 @@ export default function DashbaordToolsSection() {
           onClick={() => setShowOnlyFavorites((prev) => !prev)}
             className={`px-4 py-2 rounded-md text-sm font-medium border ${
               showOnlyFavorites
-                ? "bg-secondary text-primary border-secondary"
+                ? "bg-secondary text-primary hover:bg-accent hover:text-background border-secondary"
                 : "bg-transparent text-foreground border-secondary hover:bg-accent hover:text-background"
             } transition`}
           >

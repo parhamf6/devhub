@@ -28,9 +28,11 @@ import {
   Trash2,
   Save,
   Info,
-  AlertTriangle
+  AlertTriangle,
+  Bookmark
 } from 'lucide-react';
 import { LearnButton } from '@/features/dashboard/tools/components/learn-button';
+import {Tooltip , TooltipContent , TooltipTrigger } from '@/components/ui/tooltip';
 
 const tool = uuidGenerator;
 
@@ -374,8 +376,8 @@ export default function UUIDGeneratorPage() {
             size="default"
             onClick={() => setShowHistory(!showHistory)}
           >
-            <History className="w-4 h-4 mr-2" />
-            History
+            <Bookmark className="w-4 h-4 mr-2" />
+            Saved
           </Button>
           <LearnButton
             tool={{
@@ -398,7 +400,7 @@ export default function UUIDGeneratorPage() {
             <CardTitle className="flex items-center justify-between text-base">
               <span className="flex items-center gap-2">
                 <History className="w-4 h-4" />
-                UUID History
+                UUID Saves
               </span>
               <Button variant="ghost" size="sm" onClick={() => setShowHistory(false)}>
                 <X className="w-4 h-4" />
@@ -408,7 +410,7 @@ export default function UUIDGeneratorPage() {
           <CardContent className="p-0 overflow-y-auto max-h-[60vh]">
             {history.length === 0 ? (
               <div className="p-4 text-center text-muted-foreground text-sm">
-                No history yet
+                No Save yet
               </div>
             ) : (
               <div className="divide-y">
@@ -636,29 +638,53 @@ export default function UUIDGeneratorPage() {
                       className="hidden" 
                       accept=".txt,.json,.csv,.js"
                     />
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => fileInputRef.current?.click()}
-                    >
-                      <Upload className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={exportUUIDs}
-                      disabled={uuids.length === 0}
-                    >
-                      <Download className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={copyAll}
-                      disabled={uuids.length === 0}
-                    >
-                      <Copy className="w-4 h-4" />
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => fileInputRef.current?.click()}
+                        >
+                          <Upload className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        import UIIDs
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={exportUUIDs}
+                          disabled={uuids.length === 0}
+                        >
+                          <Download className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Download generated UIIDs in selected output format
+                      </TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={copyAll}
+                          disabled={uuids.length === 0}
+                        >
+                          <Copy className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Copy Generated UIIDs
+                      </TooltipContent>
+                    </Tooltip>
+                    
+
+                    
                   </div>
                 </CardTitle>
               </CardHeader>

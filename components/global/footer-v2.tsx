@@ -18,7 +18,7 @@ const footerSections = [
         label: 'Project',
         links: [
         { title: 'About Us', href: '/about' },
-        { title: 'Blog', href: '/blog' },
+        // { title: 'Blog', href: '/blog' },
         { title: 'Changelog', href: '/about#changelog' },
         { title: 'Roadmap', href: '/about#changelog' },
         ],
@@ -68,9 +68,9 @@ export function FooterV2() {
             </p>
 
             <div className="flex space-x-4 pt-4">
-                <Link href="#" aria-label="GitHub"><GithubIcon className="size-5 hover:text-primary" /></Link>
-                <Link href="#" aria-label="X / Twitter"><TwitterIcon className="size-5 hover:text-primary" /></Link>
-                <Link href="#" aria-label="LinkedIn"><LinkedinIcon className="size-5 hover:text-primary" /></Link>
+                <a target='_blank' href="https://github.com/parhamf6/devhub" aria-label="GitHub"><GithubIcon className="size-5 hover:text-primary" /></a>
+                {/* <Link href="#" aria-label="X / Twitter"><TwitterIcon className="size-5 hover:text-primary" /></Link> */}
+                {/* <Link href="#" aria-label="LinkedIn"><LinkedinIcon className="size-5 hover:text-primary" /></Link> */}
             </div>
             </AnimatedContainer>
 
@@ -84,7 +84,7 @@ export function FooterV2() {
                     <li key={link.title}>
                         <Link
                         href={link.href}
-                        className="hover:text-primary transition-colors duration-300"
+                        className="hover:border-b"
                         >
                         {link.title}
                         </Link>

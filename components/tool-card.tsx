@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import {
   Star,
@@ -38,7 +38,6 @@ export type ToolCardProps = {
   tags?: string[];
   withFavoriteToggle?: boolean;
   isFavorite?: boolean;
-  // type?:string;
   type: 'tool' | 'cheatsheet';
   onToggleFavorite?: () => void;
 };
@@ -58,6 +57,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
   const [isFavorite, setIsFavorite] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isInfoDialogOpen, setIsInfoDialogOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -66,7 +66,6 @@ export const ToolCard: React.FC<ToolCardProps> = ({
   }, [slug]);
 
   useEffect(() => {
-    // Check if device is mobile
     const checkMobile = () => {
       const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
         || window.innerWidth < 768;
@@ -80,6 +79,9 @@ export const ToolCard: React.FC<ToolCardProps> = ({
   }, []);
 
   const toggleFavorite = () => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
     const stored = JSON.parse(localStorage.getItem("devhub-favorites") || "[]");
     let updated;
     if (stored.includes(slug)) {
@@ -89,6 +91,9 @@ export const ToolCard: React.FC<ToolCardProps> = ({
     }
     localStorage.setItem("devhub-favorites", JSON.stringify(updated));
     setIsFavorite(!isFavorite);
+    
+    // Reset animation state after animation completes
+    setTimeout(() => setIsAnimating(false), 600);
   };
 
   const handleInfoClick = () => {
@@ -107,6 +112,77 @@ export const ToolCard: React.FC<ToolCardProps> = ({
       <InfoIcon className="w-4 h-5" />
     </Button>
   ));
+
+  // Star animation variants
+  const starVariants = {
+    inactive: { 
+      rotate: 0, 
+      scale: 1,
+      fill: "none"
+    },
+    active: { 
+      rotate: 360, 
+      scale: [1, 1.3, 1],
+      fill: "currentColor",
+      transition: { 
+        duration: 0.6,
+        times: [0, 0.5, 1],
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // Button animation variants
+  const buttonVariants = {
+    idle: { 
+      scale: 1,
+    },
+    hover: { 
+      scale: 1.1,
+      transition: { 
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    },
+    tap: { 
+      scale: 0.9,
+      transition: { duration: 0.1 }
+    },
+    active: {
+      scale: [1, 1.05, 1],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    }
+  };
+
+  // Particle animation
+  const Particle = ({ angle, onComplete }: { angle: number, onComplete: () => void }) => (
+    <motion.div
+      className="absolute w-2 h-2 rounded-full"
+      style={{
+        left: '50%',
+        top: '50%',
+        backgroundColor: 'var(--warning)',
+      }}
+      initial={{ 
+        opacity: 1, 
+        scale: 0,
+        x: 0,
+        y: 0
+      }}
+      animate={{
+        opacity: 0,
+        scale: [0, 1, 0],
+        x: Math.cos(angle) * 30,
+        y: Math.sin(angle) * 30,
+      }}
+      transition={{ duration: 0.6 }}
+      onAnimationComplete={onComplete}
+    />
+  );
 
   return (
     <TooltipProvider>
@@ -145,12 +221,15 @@ export const ToolCard: React.FC<ToolCardProps> = ({
             <div className="flex gap-2">
               {withFavoriteToggle && (
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`p-1 rounded-full transition-colors z-10 ${
+                  variants={buttonVariants}
+                  initial="idle"
+                  animate={isFavorite ? "active" : "idle"}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className={`p-1 rounded-full transition-colors z-10 relative overflow-hidden ${
                     isFavorite
-                      ? "text-yellow-500 bg-yellow-500/10"
-                      : "text-muted-foreground hover:text-yellow-500 hover:bg-yellow-500/10"
+                      ? "text-[var(--warning)]"
+                      : "text-[var(--muted-foreground)]"
                   }`}
                   onClick={toggleFavorite}
                   title={
@@ -159,22 +238,55 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                       : "Add to favorites"
                   }
                 >
-                  <Star
-                    className="w-5 h-5"
-                    fill={isFavorite ? "currentColor" : "none"}
-                  />
+                  {/* Background glow effect */}
+                  {isFavorite && (
+                    <motion.div 
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: 'var(--warning)', opacity: 0.2 }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1.5 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    />
+                  )}
+                  
+                  {/* Animated star icon */}
+                  <motion.div
+                    variants={starVariants}
+                    initial="inactive"
+                    animate={isFavorite ? "active" : "inactive"}
+                  >
+                    <Star
+                      className="w-5 h-5"
+                      fill={isFavorite ? "currentColor" : "none"}
+                    />
+                  </motion.div>
+                  
+                  {/* Particles container */}
+                  <AnimatePresence>
+                    {!isFavorite && isAnimating && (
+                      <div className="absolute inset-0 pointer-events-none">
+                        {Array.from({ length: 8 }).map((_, i) => (
+                          <Particle 
+                            key={i} 
+                            angle={(i / 8) * Math.PI * 2} 
+                            onComplete={() => {}} 
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </AnimatePresence>
                 </motion.button>
               )}
             </div>
           </div>
-
+          
           {/* Description */}
           <div className="text-sm text-muted-foreground  h-full mt-2 line-clamp-3">
             <p>
               {description}
             </p>
           </div>
-
+          
           {/* Tags */}
           <div className="flex flex-wrap gap-1 h-full">
             {tags.slice(0, 3).map((tag) => (
@@ -188,7 +300,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
               </Link>
             ))}
           </div>
-
+          
           {/* Buttons */}
           <div className="mt-auto flex gap-2">
             <Link
@@ -198,7 +310,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
             >
               Use <ChevronRight className="w-4 h-4" />
             </Link>
-
+            
             {/* Info Button with conditional behavior */}
             <>
                 {/* Mobile Dialog */}
@@ -222,7 +334,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                     </DialogDescription>
                   </DialogContent>
                 </Dialog>
-
+                
                 {/* Desktop Tooltip */}
                 <div style={{ display: isMobile ? 'none' : 'block' }}>
                   <Tooltip>
@@ -241,276 +353,3 @@ export const ToolCard: React.FC<ToolCardProps> = ({
     </TooltipProvider>
   );
 };
-
-
-
-// "use client";
-// import React, { useEffect, useState } from "react";
-// import Link from "next/link";
-// import { motion } from "framer-motion";
-// import { Badge } from "@/components/ui/badge";
-// import {
-//   Star,
-//   ChevronRight,
-//   InfoIcon,
-//   ExternalLink,
-// } from "lucide-react";
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
-// import {
-//   Tooltip,
-//   TooltipContent,
-//   TooltipProvider,
-//   TooltipTrigger,
-// } from "@/components/ui/tooltip";
-// import { getCategoryColor } from "@/lib/tools/categories";
-// import { useRouter } from "next/navigation";
-// import { Button } from "./ui/button";
-
-// export type ToolCardProps = {
-//   name: string;
-//   description: string;
-//   slug: string;
-//   info: string;
-//   category: string;
-//   icon?: React.ReactNode;
-//   version?: string;
-//   rating?: number;
-//   tags?: string[];
-//   withFavoriteToggle?: boolean;
-//   isFavorite?: boolean;
-//   onToggleFavorite?: () => void;
-// };
-
-// export const ToolCard: React.FC<ToolCardProps> = ({
-//   name,
-//   description,
-//   slug,
-//   info,
-//   category,
-//   icon,
-//   version,
-//   rating,
-//   tags = [],
-//   withFavoriteToggle = false,
-// }) => {
-//   const [isFavorite, setIsFavorite] = useState(false);
-//   const [isMobile, setIsMobile] = useState(false);
-//   const [isInfoDialogOpen, setIsInfoDialogOpen] = useState(false);
-//   const [isHovered, setIsHovered] = useState(false);
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     const stored = JSON.parse(localStorage.getItem("devhub-favorites") || "[]");
-//     setIsFavorite(stored.includes(slug));
-//   }, [slug]);
-
-//   useEffect(() => {
-//     const checkMobile = () => {
-//       const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-//         || window.innerWidth < 768;
-//       setIsMobile(isMobileDevice);
-//     };
-    
-//     checkMobile();
-//     window.addEventListener('resize', checkMobile);
-    
-//     return () => window.removeEventListener('resize', checkMobile);
-//   }, []);
-
-//   const toggleFavorite = (e: React.MouseEvent) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     const stored = JSON.parse(localStorage.getItem("devhub-favorites") || "[]");
-//     let updated;
-//     if (stored.includes(slug)) {
-//       updated = stored.filter((s: string) => s !== slug);
-//     } else {
-//       updated = [...stored, slug];
-//     }
-//     localStorage.setItem("devhub-favorites", JSON.stringify(updated));
-//     setIsFavorite(!isFavorite);
-//   };
-
-//   const handleInfoClick = (e: React.MouseEvent) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     if (isMobile) {
-//       setIsInfoDialogOpen(true);
-//     }
-//   };
-
-//   const InfoButton = React.forwardRef<HTMLButtonElement, any>((props, ref) => (
-//     <Button 
-//       {...props}
-//       ref={ref}
-//       variant="ghost"
-//       size="sm"
-//       className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-full transition-all duration-200"
-//       onClick={handleInfoClick}
-//     >
-//       <InfoIcon className="w-4 h-4" />
-//     </Button>
-//   ));
-
-//   return (
-//     <TooltipProvider>
-//       <motion.div
-//         whileHover={{ y: -2, scale: 1.01 }}
-//         transition={{ type: "spring", stiffness: 400, damping: 25 }}
-//         className="relative group"
-//         onMouseEnter={() => setIsHovered(true)}
-//         onMouseLeave={() => setIsHovered(false)}
-//       >
-//         <div className="relative flex flex-col p-6 bg-gradient-to-br from-card to-card/95 border border-border rounded-3xl shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 w-[340px] h-[320px] backdrop-blur-sm">
-          
-//           {/* Gradient overlay on hover */}
-//           <div className={`absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-3xl transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
-          
-//           {/* Header with favorite and info */}
-//           <div className="relative flex justify-between items-start mb-5">
-//             <div className="flex-1">
-//               <div className="flex items-start justify-between mb-2">
-//                 <h2 className="text-xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors duration-200">
-//                   {name}
-//                 </h2>
-//                 <div className="flex items-center gap-1 ml-3">
-//                   {/* Info Button */}
-//                   <>
-//                     {/* Mobile Dialog */}
-//                     <Dialog open={isInfoDialogOpen} onOpenChange={setIsInfoDialogOpen}>
-//                       <DialogTrigger asChild>
-//                         <div style={{ display: isMobile ? 'block' : 'none' }}>
-//                           <InfoButton />
-//                         </div>
-//                       </DialogTrigger>
-//                       <DialogContent className="sm:max-w-md">
-//                         <DialogHeader>
-//                           <DialogTitle className="flex items-center gap-2">
-//                             <InfoIcon className="w-5 h-5 text-primary" />
-//                             About {name}
-//                           </DialogTitle>
-//                         </DialogHeader>
-//                         <DialogDescription className="text-sm leading-relaxed">
-//                           {info}
-//                         </DialogDescription>
-//                       </DialogContent>
-//                     </Dialog>
-
-//                     {/* Desktop Tooltip */}
-//                     <div style={{ display: isMobile ? 'none' : 'block' }}>
-//                       <Tooltip>
-//                         <TooltipTrigger asChild>
-//                           <InfoButton />
-//                         </TooltipTrigger>
-//                         <TooltipContent className="max-w-xs z-50">
-//                           <p className="text-sm">{info}</p>
-//                         </TooltipContent>
-//                       </Tooltip>
-//                     </div>
-//                   </>
-                  
-//                   {/* Favorite Button */}
-//                   {withFavoriteToggle && (
-//                     <motion.button
-//                       whileHover={{ scale: 1.1 }}
-//                       whileTap={{ scale: 0.9 }}
-//                       className={`h-8 w-8 rounded-full transition-all duration-200 flex items-center justify-center ${
-//                         isFavorite
-//                           ? "text-yellow-500 bg-yellow-500/15 shadow-sm"
-//                           : "text-muted-foreground hover:text-yellow-500 hover:bg-yellow-500/10"
-//                       }`}
-//                       onClick={toggleFavorite}
-//                       title={isFavorite ? "Remove from favorites" : "Add to favorites"}
-//                     >
-//                       <Star
-//                         className="w-4 h-4 transition-transform duration-200"
-//                         fill={isFavorite ? "currentColor" : "none"}
-//                       />
-//                     </motion.button>
-//                   )}
-//                 </div>
-//               </div>
-              
-//               {/* Category and Version */}
-//               <div className="flex items-center gap-3 flex-wrap">
-//                 <Link
-//                   href={`/dashboard/tools/categories?category=${category}`}
-//                   className="group/category"
-//                   onClick={(e) => e.stopPropagation()}
-//                 >
-//                   <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 group-hover/category:scale-105 ${getCategoryColor(category)}`}>
-//                     {category}
-//                     <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover/category:opacity-100 transition-opacity duration-200" />
-//                   </div>
-//                 </Link>
-//                 {version && (
-//                   <div className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-muted/50 text-muted-foreground border border-border/50">
-//                     v{version}
-//                   </div>
-//                 )}
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Description */}
-//           <div className="relative mb-5">
-//             <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-//               {description}
-//             </p>
-//             <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-card to-transparent pointer-events-none" />
-//           </div>
-
-//           {/* Tags */}
-//           <div className="flex flex-wrap gap-2 mb-6">
-//             {tags.slice(0, 4).map((tag) => (
-//               <Link href={`/dashboard/tools/tags?tag=${tag}`} key={tag} className="group/tag">
-//                 <Badge
-//                   variant="secondary"
-//                   className="text-xs hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-200 group-hover/tag:scale-105"
-//                 >
-//                   #{tag}
-//                 </Badge>
-//               </Link>
-//             ))}
-//             {tags.length > 4 && (
-//               <Badge
-//                 variant="outline"
-//                 className="text-xs text-muted-foreground border-dashed"
-//               >
-//                 +{tags.length - 4} more
-//               </Badge>
-//             )}
-//           </div>
-
-//           {/* Action Button */}
-//           <div className="mt-auto">
-//             <Link
-//               href={`/dashboard/tools/${slug}`}
-//               onMouseEnter={() => router.prefetch(`/dashboard/tools/${slug}`)}
-//               className="group/button w-full"
-//               onClick={(e) => e.stopPropagation()}
-//             >
-//               <motion.div
-//                 whileHover={{ scale: 1.02 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-primary to-primary/90 rounded-2xl hover:from-primary/90 hover:to-primary transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-primary/25"
-//               >
-//                 <span>Use Tool</span>
-//                 <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover/button:translate-x-0.5" />
-//               </motion.div>
-//             </Link>
-//           </div>
-//         </div>
-//       </motion.div>
-//     </TooltipProvider>
-//   );
-// };
-
-
