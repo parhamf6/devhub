@@ -270,6 +270,16 @@ export const tools: ToolCardProps[] = [
     tags: ["palette", "accessibility", "css"],
     type:"tool"
   },
+  {
+    name: "CSS Unit Converter", 
+    slug: "css-unit-converter",
+    description: "Convert between CSS units: px, em, rem, %, vw, vh",
+    info: "Convert CSS measurements with customizable base font sizes and viewport dimensions.",
+    category: "Design",
+    version: "1.0.0",
+    tags: ["css", "unit", "convert", "responsive"],
+    type: "tool"
+  },
   // {
   //   name: "CSS Unit Converter",
   //   slug: "css-unit-converter",
