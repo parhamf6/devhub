@@ -574,7 +574,7 @@ export default function CssUnitConverterPage() {
                                 <div className="md:col-span-5">
                                     <div className="flex flex-col space-y-2">
                                         <Label htmlFor="fromValue">Convert</Label>
-                                        <div className="flex gap-2">
+                                        <div className="flex gap-2 items-center">
                                             <Input
                                                 id="fromValue"
                                                 type="text"
@@ -607,7 +607,7 @@ export default function CssUnitConverterPage() {
                                 <div className="md:col-span-5">
                                     <div className="flex flex-col space-y-2">
                                         <Label htmlFor="toValue">To</Label>
-                                        <div className="flex gap-2">
+                                        <div className="flex gap-2 items-center">
                                             <Input
                                                 id="toValue"
                                                 type="text"
@@ -632,7 +632,7 @@ export default function CssUnitConverterPage() {
                                 </div>
                             </div>
                             
-                            <div className="flex justify-end gap-2 mt-4">
+                            <div className="flex justify-between md:justify-end flex-wrap gap-2 mt-4">
                                 <Button size="sm" variant="outline" onClick={handleCopy}>
                                     <Copy className="w-4 h-4 mr-2" />
                                     Copy Result
@@ -792,7 +792,7 @@ export default function CssUnitConverterPage() {
                                     </Select>
                                 </div>
                                 
-                                <div className="flex gap-2 items-end">
+                                <div className="flex gap-2 flex-wrap items-end">
                                     <Button onClick={convertBatch}>
                                         <RefreshCcw className="w-4 h-4 mr-2" />
                                         Convert All
