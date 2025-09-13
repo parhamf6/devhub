@@ -50,6 +50,7 @@ import { Slider } from '@/components/ui/slider';
 import base64Encoder from '@/lib/tools/tool/base64';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { nanoid } from 'nanoid';
 
 const tool = base64Encoder;
 
@@ -294,7 +295,7 @@ export default function Base64EncoderPage() {
             // Add to history if valid result
             if (processResult.isValid && processResult.output) {
                 const newHistoryItem: ConversionHistory = {
-                    id: Date.now().toString(),
+                    id: nanoid(),
                     timestamp: new Date(),
                     input: options.input || options.fileContent || '',
                     output: processResult.output,
@@ -455,62 +456,6 @@ export default function Base64EncoderPage() {
         });
         setCurrentHistoryIndex(history.findIndex(h => h.id === item.id));
         toast.success('Loaded from history');
-    };
-    
-    const playHistory = () => {
-        if (history.length === 0) return;
-        
-        setIsPlaying(true);
-        let index = currentHistoryIndex >= 0 ? currentHistoryIndex : 0;
-        
-        const playNext = () => {
-            if (!isPlaying) return;
-            
-            if (index >= history.length) {
-                setIsPlaying(false);
-                return;
-            }
-            
-            const item = history[index];
-            setOptions({
-                ...item.options,
-                input: item.input
-            });
-            setCurrentHistoryIndex(index);
-            
-            index++;
-            setTimeout(playNext, 2000); // 2 seconds between each item
-        };
-        
-        playNext();
-    };
-    
-    const pauseHistory = () => {
-        setIsPlaying(false);
-    };
-    
-    const nextHistoryItem = () => {
-        if (currentHistoryIndex < history.length - 1) {
-            const nextIndex = currentHistoryIndex + 1;
-            const item = history[nextIndex];
-            setOptions({
-                ...item.options,
-                input: item.input
-            });
-            setCurrentHistoryIndex(nextIndex);
-        }
-    };
-    
-    const prevHistoryItem = () => {
-        if (currentHistoryIndex > 0) {
-            const prevIndex = currentHistoryIndex - 1;
-            const item = history[prevIndex];
-            setOptions({
-                ...item.options,
-                input: item.input
-            });
-            setCurrentHistoryIndex(prevIndex);
-        }
     };
     
     const clearHistory = () => {
@@ -984,9 +929,9 @@ export default function Base64EncoderPage() {
             
             {/* Output */}
             <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-2">
                     <Label className="font-medium">Output</Label>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 flex-wrap">
                         <Button
                             size="sm"
                             variant="outline"
@@ -1101,54 +1046,19 @@ export default function Base64EncoderPage() {
             
             {/* History Section */}
             <Card>
-                <CardHeader>
+                <CardHeader className='border-b'>
                     <CardTitle className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                             <History className="w-5 h-5" />
-                            Conversion History
+                            History
                         </div>
                         <div className="flex gap-2">
-                            {isPlaying ? (
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    onClick={pauseHistory}
-                                >
-                                    <Pause className="w-4 h-4" />
-                                </Button>
-                            ) : (
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    onClick={playHistory}
-                                    disabled={history.length === 0}
-                                >
-                                    <Play className="w-4 h-4" />
-                                </Button>
-                            )}
                             <Button
                                 variant="outline"
-                                size="sm"
-                                onClick={prevHistoryItem}
-                                disabled={currentHistoryIndex <= 0}
-                            >
-                                <SkipBack className="w-4 h-4" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={nextHistoryItem}
-                                disabled={currentHistoryIndex >= history.length - 1}
-                            >
-                                <SkipForward className="w-4 h-4" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="sm"
                                 onClick={clearHistory}
                                 disabled={history.length === 0}
                             >
-                                <Trash2 className="w-4 h-4" />
+                                <Trash2 className="w-4 h-4" /> Clear history
                             </Button>
                         </div>
                     </CardTitle>
