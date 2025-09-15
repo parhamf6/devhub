@@ -436,12 +436,12 @@ export default function CurlBuilderPage() {
 
             {/* Tabbed Interface */}
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="grid w-full grid-cols-5">
+              <TabsList className="w-full flex overflow-hidden">
                 <TabsTrigger value="request">Request</TabsTrigger>
                 <TabsTrigger value="auth">Auth</TabsTrigger>
                 <TabsTrigger value="advanced">Advanced</TabsTrigger>
                 <TabsTrigger value="output">Output</TabsTrigger>
-                <TabsTrigger value="history">History</TabsTrigger>
+                <TabsTrigger value="history">Saved</TabsTrigger>
               </TabsList>
 
               <TabsContent value="request" className="space-y-4">
@@ -860,17 +860,17 @@ export default function CurlBuilderPage() {
               <TabsContent value="history">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
+                    <CardTitle className="flex items-center justify-between flex-wrap">
                       <div className="flex items-center gap-2">
                         <History className="w-5 h-5" />
                         Saved Requests
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-center mt-2">
                         <Input
                           value={currentRequestName}
                           onChange={e => setCurrentRequestName(e.target.value)}
                           placeholder="Request name..."
-                          className="w-48"
+                          className="min-w-32 max-w-64"
                         />
                         <Button onClick={saveRequest} disabled={!currentRequestName.trim()}>
                           <Save className="w-4 h-4 mr-2" />
