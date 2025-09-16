@@ -1199,6 +1199,96 @@ export default function RegexTesterPage() {
                                     </div>
                                     {renderFileUploadArea('test')}
                                 </div>
+                                {result.matches.length > 0 && (
+                                    <Card className="shadow-sm">
+                                        <CardHeader className="pb-3">
+                                            <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                                                <span>Match Details</span>
+                                                <div className="flex items-center gap-2">
+                                                    <Badge variant="outline">
+                                                        <Clock className="w-3 h-3 mr-1" />
+                                                        {result.executionTime.toFixed(2)}ms
+                                                    </Badge>
+                                                    <Button
+                                                        size="sm"
+                                                        variant="outline"
+                                                        onClick={handleCopyAllMatches}
+                                                    >
+                                                        <CopyIcon className="w-4 h-4 mr-1 sm:mr-2" />
+                                                        <span className="hidden sm:inline">Copy All</span>
+                                                    </Button>
+                                                    <Button
+                                                        size="sm"
+                                                        variant="outline"
+                                                        onClick={handleExportMatches}
+                                                    >
+                                                        <Download className="w-4 h-4 mr-1 sm:mr-2" />
+                                                        <span className="hidden sm:inline">Export</span>
+                                                    </Button>
+                                                </div>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <ScrollArea className="h-64">
+                                                <div className="space-y-2">
+                                                    {result.matches.map((match, index) => (
+                                                        <div
+                                                            key={index}
+                                                            className={`p-3 rounded-lg border cursor-pointer transition-colors ${
+                                                                selectedMatch === index 
+                                                                    ? 'bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800' 
+                                                                    : 'hover:bg-muted/50'
+                                                            }`}
+                                                            onClick={() => setSelectedMatch(index === selectedMatch ? null : index)}
+                                                        >
+                                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-1">
+                                                                <Badge variant="secondary">Match {index + 1}</Badge>
+                                                                <div className="text-xs text-muted-foreground">
+                                                                    Position: {match.index}-{match.lastIndex}
+                                                                </div>
+                                                            </div>
+                                                            <div className="font-mono text-sm mb-2 p-2 bg-muted/30 rounded break-all">
+                                                                "{match.match}"
+                                                            </div>
+                                                            {match.groups.length > 0 && (
+                                                                <div>
+                                                                    <div className="text-sm font-medium mb-1">Groups:</div>
+                                                                    <div className="space-y-1">
+                                                                        {match.groups.map((group, groupIndex) => (
+                                                                            <div key={groupIndex} className="flex items-center gap-2 text-xs">
+                                                                                <Badge variant="outline" className="text-xs">
+                                                                                    ${groupIndex + 1}
+                                                                                </Badge>
+                                                                                <span className="font-mono break-all">
+                                                                                    {group ? `"${group}"` : 'undefined'}
+                                                                                </span>
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                            {Object.keys(match.namedGroups).length > 0 && (
+                                                                <div className="mt-2">
+                                                                    <div className="text-sm font-medium mb-1">Named Groups:</div>
+                                                                    <div className="space-y-1">
+                                                                        {Object.entries(match.namedGroups).map(([name, value]) => (
+                                                                            <div key={name} className="flex items-center gap-2 text-xs">
+                                                                                <Badge variant="outline" className="text-xs">
+                                                                                    {name}
+                                                                                </Badge>
+                                                                                <span className="font-mono break-all">"{value}"</span>
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </ScrollArea>
+                                        </CardContent>
+                                    </Card>
+                                )}
                                 
                                 {/* Highlighted Results */}
                                 {options.testString && (
@@ -1222,9 +1312,11 @@ export default function RegexTesterPage() {
                                             </CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <div className={`bg-muted/30 p-4 rounded-lg font-mono text-sm whitespace-pre-wrap ${fullScreenResult ? 'min-h-screen' : 'min-h-32'}`}>
-                                                {highlightedText}
-                                            </div>
+                                            <ScrollArea className="h-64 border rounded-2xl">
+                                                <div className={`bg-muted/30 p-4 rounded-lg font-mono text-sm whitespace-pre-wrap ${fullScreenResult ? 'min-h-screen' : 'min-h-32'}`}>
+                                                    {highlightedText}
+                                                </div>
+                                            </ScrollArea>
                                         </CardContent>
                                     </Card>
                                 )}
@@ -1288,9 +1380,11 @@ export default function RegexTesterPage() {
                                             </CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm whitespace-pre-wrap min-h-32">
-                                                {highlightedText}
-                                            </div>
+                                            <ScrollArea className="h-64 border rounded-2xl">
+                                                <div className={`bg-muted/30 p-4 rounded-lg font-mono text-sm whitespace-pre-wrap ${fullScreenResult ? 'min-h-screen' : 'min-h-32'}`}>
+                                                    {highlightedText}
+                                                </div>
+                                            </ScrollArea>
                                         </CardContent>
                                     </Card>
                                 )}
@@ -1339,19 +1433,7 @@ export default function RegexTesterPage() {
                                         </CardContent>
                                     </Card>
                                 )}
-                            </TabsContent>
-                        </Tabs>
-                        
-                        {/* Error Alert */}
-                        {result.error && (
-                            <Alert variant="destructive">
-                                <AlertCircle className="h-4 w-4" />
-                                <AlertDescription>{result.error}</AlertDescription>
-                            </Alert>
-                        )}
-                        
-                        {/* Matches Table */}
-                        {result.matches.length > 0 && (
+                                {result.matches.length > 0 && (
                             <Card className="shadow-sm">
                                 <CardHeader className="pb-3">
                                     <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
@@ -1440,6 +1522,16 @@ export default function RegexTesterPage() {
                                     </ScrollArea>
                                 </CardContent>
                             </Card>
+                        )}
+                            </TabsContent>
+                        </Tabs>
+                        
+                        {/* Error Alert */}
+                        {result.error && (
+                            <Alert variant="destructive">
+                                <AlertCircle className="h-4 w-4" />
+                                <AlertDescription>{result.error}</AlertDescription>
+                            </Alert>
                         )}
                         
                         {/* Statistics */}
